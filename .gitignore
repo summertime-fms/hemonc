@@ -8,11 +8,6 @@ site/bitrix/.settings.php
 site/bitrix/php_interface/dbconn.php
 site/local/php_interface/.settings.php
 
-# --- Docker (локальная разработка) ---
-/docker/
-docker-compose.yml
-docker-compose.*.yml
-dbdata/
 
 # --- Bitrix: ядро, кеш, временные файлы ---
 site/bitrix/
