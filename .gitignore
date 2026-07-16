@@ -1,0 +1,45 @@
+# --- Окружение и секреты ---
+.env
+.env.*
+!.env.example
+*.local.php
+
+site/bitrix/.settings.php
+site/bitrix/php_interface/dbconn.php
+site/local/php_interface/.settings.php
+
+
+# --- Bitrix: ядро, кеш, временные файлы ---
+site/bitrix/
+
+# --- Загрузки и пользовательский контент ---
+site/upload/
+
+# --- Логи, отладка, бэкапы ---
+site/local/debug/
+site/local/logs/
+*.log
+*.sql
+*.sql.gz
+*.tar
+*.tar.gz
+*.zip
+
+# --- Экспорты и дампы ---
+site/hl4_export.json
+site/bitrix/backup/
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- Зависимости ---
+node_modules/
+vendor/
+
+/bitrix/
+/local/
