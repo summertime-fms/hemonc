@@ -1,0 +1,73 @@
+.hemonc2__advantages {
+    margin-top: 3rem;
+}
+
+.hemonc2__advantages-swiper {
+    margin-top: 2rem;
+    /* display: flex; */
+    /* justify-content: space-evenly; */
+    /* flex-wrap: wrap; */
+}
+
+.hemonc2__advantages-item {
+    margin: 1.2rem;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* max-width: 10rem; */
+}
+
+@media screen and (max-width: 768px) {
+    .hemonc2__advantages-item {
+        /* flex-direction: row; */
+    }
+}
+
+.hemonc2__advantages-icon {
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+}
+
+.hemonc2__advantages-icon img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hemonc2__advantages-text {
+    margin-top: 1rem;
+    color: var(--h, #0F2531);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    max-width: 12rem;
+}
+
+.hemonc2__advantages-dots {
+    text-align: center;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hemonc2__advantages-dots button {
+    background-color: #007088;
+    opacity: .2;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.hemonc2__advantages-dots .slick-active button {
+    opacity: 1;
+    width: 0.75rem;
+    height: 0.75rem;
+}

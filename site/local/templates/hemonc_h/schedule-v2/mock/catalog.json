@@ -1,0 +1,57 @@
+{
+  "specialties": [
+    { "code": "oncology", "name": "Онкология" },
+    { "code": "hematology", "name": "Гематология" },
+    { "code": "chemotherapy", "name": "Химиотерапия" }
+  ],
+  "services": [
+    { "id": "svc-consult", "name": "Консультация онколога", "specialtyCodes": ["oncology"] },
+    { "id": "svc-uzi", "name": "УЗИ", "specialtyCodes": ["oncology", "hematology"] },
+    { "id": "svc-mrt", "name": "МРТ", "specialtyCodes": ["oncology"] },
+    { "id": "disease-breast", "name": "Рак молочной железы", "specialtyCodes": ["oncology"] }
+  ],
+  "doctors": [
+    {
+      "bitrixId": 1001,
+      "doctorGuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "name": "Иванова Анна Сергеевна",
+      "specialty": "Онколог",
+      "specialtyCode": "oncology",
+      "experienceYears": 12,
+      "degree": "к.м.н.",
+      "photo": "",
+      "formats": ["clinic", "online"],
+      "serviceIds": ["svc-consult", "disease-breast"],
+      "nearest": "16.07.2026 10:00",
+      "nearestTs": 1784181600
+    },
+    {
+      "bitrixId": 1002,
+      "doctorGuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "name": "Петров Иван Алексеевич",
+      "specialty": "Гематолог",
+      "specialtyCode": "hematology",
+      "experienceYears": 8,
+      "degree": "",
+      "photo": "",
+      "formats": ["clinic", "home"],
+      "serviceIds": ["svc-uzi"],
+      "nearest": "17.07.2026 09:30",
+      "nearestTs": 1784266200
+    },
+    {
+      "bitrixId": 1003,
+      "doctorGuid": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+      "name": "Сидорова Мария Петровна",
+      "specialty": "Онколог-химиотерапевт",
+      "specialtyCode": "chemotherapy",
+      "experienceYears": 15,
+      "degree": "д.м.н.",
+      "photo": "",
+      "formats": ["clinic", "online", "home"],
+      "serviceIds": ["svc-consult", "svc-mrt"],
+      "nearest": "16.07.2026 14:00",
+      "nearestTs": 1784196000
+    }
+  ]
+}

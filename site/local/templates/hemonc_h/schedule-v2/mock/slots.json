@@ -1,0 +1,73 @@
+{
+  "_default": {
+    "days": [
+      {
+        "date": "20260716",
+        "label": "Сегодня, 16 июля",
+        "slots": [
+          { "time": "10:00", "format": "clinic", "visitTypes": ["primary", "repeat"] },
+          { "time": "10:30", "format": "online", "visitTypes": ["primary"] },
+          { "time": "11:00", "format": "clinic", "visitTypes": ["repeat"] }
+        ]
+      },
+      {
+        "date": "20260717",
+        "label": "Пт, 17 июля",
+        "slots": []
+      },
+      {
+        "date": "20260718",
+        "label": "Сб, 18 июля",
+        "slots": [
+          { "time": "09:00", "format": "clinic", "visitTypes": ["primary"] },
+          { "time": "09:30", "format": "home", "visitTypes": ["primary", "repeat"] }
+        ]
+      },
+      {
+        "date": "20260719",
+        "label": "Вс, 19 июля",
+        "slots": []
+      },
+      {
+        "date": "20260720",
+        "label": "Пн, 20 июля",
+        "slots": [
+          { "time": "12:00", "format": "online", "visitTypes": ["primary", "repeat"] },
+          { "time": "12:30", "format": "online", "visitTypes": ["repeat"] },
+          { "time": "13:00", "format": "clinic", "visitTypes": ["primary"] }
+        ]
+      },
+      {
+        "date": "20260721",
+        "label": "Вт, 21 июля",
+        "slots": [
+          { "time": "15:00", "format": "clinic", "visitTypes": ["primary", "repeat"] }
+        ]
+      },
+      {
+        "date": "20260722",
+        "label": "Ср, 22 июля",
+        "slots": []
+      }
+    ]
+  },
+  "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa": {
+    "days": [
+      {
+        "date": "20260716",
+        "label": "Сегодня, 16 июля",
+        "slots": [
+          { "time": "10:00", "format": "clinic", "visitTypes": ["primary", "repeat"] },
+          { "time": "10:30", "format": "online", "visitTypes": ["primary"] }
+        ]
+      },
+      {
+        "date": "20260717",
+        "label": "Пт, 17 июля",
+        "slots": [
+          { "time": "11:00", "format": "clinic", "visitTypes": ["primary"] }
+        ]
+      }
+    ]
+  }
+}

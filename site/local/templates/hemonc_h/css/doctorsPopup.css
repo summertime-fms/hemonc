@@ -1,0 +1,556 @@
+.doctors-popup-content {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+
+.doctors-popup-content .popup-form .popup-title {
+    font-size: 1.8rem;
+    color: #555;
+    padding: 5px 4px;
+    margin-left: 1rem;
+}
+
+.doctors-popup-content .popup-form .popup-title .modal-return {
+    top: 20px;
+    left: 20px;
+}
+
+.doctors-popup-content .popup-form .popup-title .modal-close {
+    top: 20px;
+    right: 20px;
+}
+
+.doctors-popup-content .popup-form .popup-info {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 34px 4px;
+    line-height: 1.2;
+    margin-left: 1rem;
+}
+
+.doctors-popup-content .popup-form .popup-info .popup-info-inner {
+    font-size: 0.9rem;
+    padding: 10px 0;
+    color: #888;
+}
+
+.doctors-popup-content .popup-form .popup-items-scroll {
+    overflow: auto;
+    /* position: absolute; */
+    /* top: 130px; */
+    /* left: 20px; */
+    /* right: 20px; */
+    /* bottom: 20px; */
+    /* padding: 0 10px 0 0; */
+}
+
+.doctors-popup-content .popup-form .popup-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow: auto;
+    gap: 14px;
+}
+
+.doctors-popup-content .popup-form .popup-items-container .card {
+    height: auto !important;
+    width: 377px;
+    cursor: pointer;
+    min-height: 178px;
+}
+
+.doctors-popup-content .popup-form .popup-items-container .card .head {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.popup-loading {
+    background-color: #fff;
+    height: 250px;
+    width: 800px;
+    border-radius: 4px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 760px) {
+    .popup-form {
+        width: 98%;
+    }
+
+    .popup-loading {
+        width: 80%;
+    }
+
+    .doctors-popup-content .popup-form .popup-items-scroll {
+        top: 140px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        padding: 0 10px 0 0;
+    }
+
+    .doctors-popup-content .popup-form .popup-items-container .card {
+        height: auto !important;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .doctors-popup-content .popup-form .popup-items-scroll {
+        top: 143px;
+    }
+
+    .popup-loading {
+        width: 80%;
+    }
+
+    .doctors-popup-content .popup-form .popup-info {
+        font-size: 1.1rem;
+        color: #333;
+        padding: 18px 4px;
+        line-height: 1.22;
+    }
+
+    .modal-return {
+        top: 22px;
+        left: 24px;
+    }
+}
+
+.reference-modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .reference-modal:after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .reference-modal {
+        /* padding-left: 72px !important; */
+        /* padding-right: 48px !important; */
+    }
+}
+
+.reference-modal .doctor-name-item {
+    margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+    .reference-modal .doctor-name-item {
+        margin-bottom: 47px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .reference-modal .set-time-block {
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .reference-modal .set-time-calendar {
+        width: 280px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .reference-modal .set-time-calendar {
+        width: 252px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .reference-modal .set-time-calendar,
+    .reference-modal .set-time-time {
+        min-height: 224px;
+        float: left;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .reference-modal .set-time-time {
+        position: relative;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .reference-modal .set-time-time {
+        margin-left: 56px;
+        width: 160px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .reference-modal .set-time-time {
+        width: 144px;
+        margin-left: 68px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .reference-modal .set-time-time:before {
+        width: 2px !important;
+        height: 224px !important;
+        position: absolute;
+        top: 0;
+        margin: 0 !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .reference-modal .set-time-time:before {
+        left: -23px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .reference-modal .set-time-time:before {
+        left: -31px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .reference-modal .set-time-time,
+    .reference-modal .set-time-form {
+        position: relative;
+    }
+}
+
+.reference-modal .set-time-time:before,
+.reference-modal .set-time-form:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #DDE2E2;
+    margin: 32px 0 24px;
+}
+
+@media screen and (min-width: 1200px) {
+    .reference-modal .set-time-form {
+        float: left;
+        width: 224px;
+        margin-left: 72px;
+    }
+
+    .reference-modal .set-time-form:before {
+        width: 2px !important;
+        height: 224px !important;
+        position: absolute;
+        left: -40px;
+        top: 0;
+        margin: 0 !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .reference-modal .set-time-form {
+        float: none;
+        clear: both;
+        padding-top: 66px;
+    }
+
+    .reference-modal .set-time-form:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .reference-modal>.form-standard {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .reference-modal>.form-standard {
+        width: 288px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .reference-modal>.form-standard {
+        width: 224px;
+    }
+}
+
+.reference-modal>.form-standard>p {
+    margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .reference-modal>.form-standard>p {
+        margin: 0 -27px 15px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .reference-modal>.form-standard>p {
+        margin: 0 -55px 15px;
+    }
+}
+
+.reference-modal>.form-standard *[type=submit] {
+    width: 100%;
+    display: block;
+}
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+    /*display: table*/
+}
+
+.modal:not(.visible) {
+    pointer-events: none;
+    -webkit-animation: modalHide 0.01s linear 0.4s;
+    animation: modalHide 0.01s linear 0.4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes modalHide {
+    0% {
+        visibility: visible;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+@keyframes modalHide {
+    0% {
+        visibility: visible;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+.modal.visible {
+    opacity: 1;
+    overflow-y: auto;
+}
+
+.modal-overflow {
+    overflow: hidden;
+}
+
+.modal-overflow .modal {
+    display: block;
+}
+
+.modal-overflow .modal-container {
+    padding: 0;
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .modal-overflow .modal-container {
+        padding: 5vh 0;
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #0f2531;
+    background-color: rgba(15, 37, 49, 0.95);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1, 1);
+    transform: translateZ(0) scale(1, 1);
+}
+
+.modal-close {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    position: absolute;
+    display: block;
+    top: 24px;
+    right: 24px;
+}
+
+.modal-close:before,
+.modal-close:after {
+    content: '';
+    display: block;
+    position: absolute;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: #007088;
+    border-radius: 2px;
+}
+
+.modal-close:before {
+    -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(-45deg);
+    transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(-45deg);
+}
+
+.modal-close:after {
+    -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) translateZ(0) rotate(45deg);
+}
+
+@media screen and (min-width: 768px) {
+    .modal-close {
+        top: 40px;
+        right: 40px;
+    }
+}
+
+.modal-close:before,
+.modal-close:after {
+    -webkit-transition-property: background;
+    -o-transition-property: background;
+    transition-property: background;
+    -webkit-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+.modal-close:hover:before,
+.modal-close:hover:after {
+    background-color: #FEA0A0;
+}
+
+.modal-container {
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    /* display: table-cell; */
+    /* vertical-align: middle */
+}
+
+.modal-content {
+    display: none;
+}
+
+.modal .modal-content {
+    position: relative;
+    background-color: #fff;
+    z-index: 10;
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+    max-width: 90vw;
+    min-width: 50vw;
+    padding: 13px 24px 40px;
+    margin-top: 35px;
+}
+
+@media screen and (min-width: 768px) {
+    .modal .modal-content {
+        border-radius: 4px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .modal .modal-content {
+        width: max-content;
+        max-width: 85vw;
+        min-width: 50vw;
+        padding: 33px 5px 44px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .modal .modal-content {
+        width: max-content;
+        max-width: 95vw;
+        min-width: 50vw;
+        padding: 33px 5px 55px;
+    }
+}
+
+.modal-title {
+    color: #555;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 32px;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 16px;
+}
+
+@media screen and (min-width: 768px) {
+    .modal-title {
+        font-size: 20px;
+        line-height: 28px;
+        padding: 0;
+    }
+}
+
+.modal-content .floatingBarsG {
+    position: absolute;
+    left: calc(50% - 30px);
+    top: calc(50% - 32px);
+    margin: auto;
+}
+
+.modal-content .floatingBarsGBG {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    opacity: 0;
+    background: rgba(248, 248, 250, 0.4);
+}
+
+.modal-content .success-form h2 {
+    font-size: 23px;
+}
+
+.modal-content .success-form {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.set-time-block {
+    padding: 0 55px;
+}

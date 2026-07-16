@@ -1,0 +1,65 @@
+<?php
+
+/*
+ * AlexBazowsky @github
+ * for Headache since aug 2023
+ */
+
+$aMenuLinks = [
+    [
+        "Врачи",
+        "/about-us/our-doctors/",
+        [],
+        [],
+        "",
+    ],
+    [
+        "Отзывы",
+        "/about-us/reviews-patients/",
+        [],
+        [],
+        "",
+    ],
+    [
+        "Новости",
+        "/about-us/news/",
+        [],
+        [],
+        "",
+    ],
+    [
+        "Полезное",
+        "/poleznoe/",
+        [],
+        [],
+        "",
+    ],
+    [
+        "Видео",
+        "/video/",
+        [],
+        [],
+        "",
+    ],
+    [
+        "Заболевания",
+        "/zabolevaniya/",
+        [],
+        [],
+        "",
+    ],
+    [
+        "Партнёры",
+        "/partners/",
+        [],
+        [],
+        "",
+    ],
+    [
+        "Контакты",
+        "/contacts/",
+        [],
+        [],
+        "",
+    ],
+];

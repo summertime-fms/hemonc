@@ -1,0 +1,125 @@
+.hemonc2__head {
+    position: relative;
+    padding: 3.5rem 5rem;
+    border-radius: 1rem;
+    background: linear-gradient(90deg, #8DC9D6 0%, rgba(141, 201, 214, 0.00) 100%), linear-gradient(0deg, rgba(141, 201, 214, 0.40) 0%, rgba(141, 201, 214, 0.40) 100%);
+}
+
+.hemonc2__head img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1rem;
+}
+
+.hemonc2__head-title {
+    position: relative;
+    z-index: 1;
+    max-width: 27.375rem;
+    color: var(--white, #FFF);
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 3.125rem;
+    /* 104.167% */
+}
+
+.hemonc2__head-title.text-dark {
+    color: var(--h, #0F2531);
+}
+
+@media screen and (max-width: 768px) {
+    .hemonc2__head {
+        padding: 1.5rem;
+    }
+
+    .hemonc2__head-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .hemonc2__head-title {
+        font-size: 1.625rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+}
+
+.hemonc2__head__subtitle {
+    position: relative;
+    z-index: 1;
+    color: var(--white, #FFF);
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: .5rem;
+}
+
+.hemonc2__head__subtitle.text-dark {
+    color: var(--h, #0F2531);
+}
+
+@media screen and (max-width: 560px) {
+    .hemonc2__head__subtitle {
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+}
+
+.hemonc2__head__text {
+    margin: 2rem 0;
+    color: var(--white, #FFF);
+    font-family: 'Gerbera', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.hemonc2__head__desc {
+    position: relative;
+    z-index: 1;
+    margin-top: 5.87rem;
+    /* color: var(--h, #0F2531); */
+    color: var(--white, #FFF);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    max-width: 40.375rem;
+}
+
+.hemonc2__head__desc.text-dark {
+    color: var(--h, #0F2531);
+}
+
+@media screen and (max-width: 560px) {
+    .hemonc2__head__desc {
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 7.38rem;
+    }
+}
+
+.hemonc2__head__button.btn {
+    margin-top: 1rem;
+    max-width: 15rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .service-hemonc2__head__button.btn {
+        max-width: 100%;
+    }
+}

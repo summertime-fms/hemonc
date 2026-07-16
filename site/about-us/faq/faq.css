@@ -1,0 +1,9 @@
+.faq-page {
+    padding: 25px 0;
+}
+
+@media (min-width: 1200px) {
+    .faq-page {
+        padding: 45px 0;
+    }
+}

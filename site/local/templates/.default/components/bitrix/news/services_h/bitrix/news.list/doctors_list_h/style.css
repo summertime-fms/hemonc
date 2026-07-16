@@ -1,0 +1,122 @@
+.hemonc2__doctors {
+    margin-top: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .hemonc2__doctors {
+        margin-top: 3rem;
+    }
+}
+
+.hemonc2__doctors__swiper {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 560px) {
+    .hemonc2__doctors__swiper {
+        margin-right: -1.25rem;
+    }
+}
+
+.hemonc2__doctors-item {
+    margin-right: .8rem;
+    max-width: 50vw;
+}
+
+.hemonc2__doctors__wrap {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 124.78991596638656%;
+    /* padding-bottom: 16rem; */
+}
+
+.hemonc2__doctors__wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1rem;
+    max-width: 20rem;
+    /* max-height: 16rem; */
+}
+
+.hemonc2__doctors__body {
+    margin-top: 1.5rem;
+}
+
+.hemonc2__doctors__name {
+    color: var(--green, #007088);
+    font-family: 'Gerbera', sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.hemonc2__doctors__pos {
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    color: var(--h, #0F2531);
+    font-family: 'Gerbera';
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.hemonc2__doctors__link {
+    position: relative;
+    padding-right: 2rem;
+    color: var(--h, #0F2531);
+    font-family: 'Gerbera', sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    opacity: 0.24;
+}
+
+.hemonc2__doctors__link::after {
+    /* content: '';
+    position: absolute;
+    top: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none"><path d="M4 9H16M16 9L12.5 5.5M16 9L12.5 12.5" stroke="%230F2531"/></svg>'); */
+}
+
+.hemonc2__doctors-dots {
+    text-align: center;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hemonc2__doctors-dots button {
+    background-color: #007088;
+    opacity: .2;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.hemonc2__doctors-dots .slick-active button {
+    opacity: 1;
+    width: 0.75rem;
+    height: 0.75rem;
+}

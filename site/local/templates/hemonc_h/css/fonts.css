@@ -1,0 +1,98 @@
+﻿/* Copyright (c) 2014 by Vyacheslav Kirilenko, Gayane Bagdasaryan. All rights reserved. */
+
+@font-face {
+    font-family: 'GerberaLight';
+    src: url('../fonts/Gerbera-Light.eot?v=2');
+    src: url('../fonts/Gerbera-Light.eot?#iefix&v=2') format('embedded-opentype'),
+        url('../fonts/Gerbera-Light.woff2?v=2') format('woff2'),
+        url('../fonts/Gerbera-Light.woff?v=2') format('woff'),
+        url('../fonts/Gerbera-Light.ttf?v=2') format('truetype'),
+        url('../fonts/Gerbera-Light.svg#Gerbera') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GerberaMedium';
+    src: url('../fonts/Gerbera-Medium.eot');
+    src: url('../fonts/Gerbera-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gerbera-Medium.woff2') format('woff2'),
+        url('../fonts/Gerbera-Medium.woff') format('woff'),
+        url('../fonts/Gerbera-Medium.ttf') format('truetype'),
+        url('../fonts/Gerbera-Medium.svg#Gerbera-Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gerbera-Bold';
+    src: url('../fonts/Gerbera-Bold.eot');
+    src: url('../fonts/Gerbera-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gerbera-Bold.svg#Gerbera-Bold') format('svg'),
+        url('../fonts/Gerbera-Bold.ttf') format('truetype'),
+        url('../fonts/Gerbera-Bold.woff') format('woff'),
+        url('../fonts/Gerbera-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gerbera';
+    src: url('../fonts/Gerbera-Regular.eot?v=2');
+    src: url('../fonts/Gerbera-Regular.eot?#iefix&v=2') format('embedded-opentype'),
+        url('../fonts/Gerbera-Regular.woff2?v=2') format('woff2'),
+        url('../fonts/Gerbera-Regular.woff?v=2') format('woff'),
+        url('../fonts/Gerbera-Regular.ttf?v=2') format('truetype'),
+        url('../fonts/Gerbera-Regular.svg#Gerbera') format('svg');
+    font-weight: 400;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gerbera';
+    src: url('../fonts/Gerbera-Medium.eot');
+    src: url('../fonts/Gerbera-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gerbera-Medium.woff2') format('woff2'),
+        url('../fonts/Gerbera-Medium.woff') format('woff'),
+        url('../fonts/Gerbera-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gerbera';
+    src: url('../fonts/Gerbera-Black.eot');
+    src: url('../fonts/Gerbera-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gerbera-Black.woff2') format('woff2'),
+        url('../fonts/Gerbera-Black.woff') format('woff'),
+        url('../fonts/Gerbera-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gerbera';
+    src: url('../fonts/Gerbera-Bold.eot');
+    src: url('../fonts/Gerbera-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gerbera-Bold.woff2') format('woff2'),
+        url('../fonts/Gerbera-Bold.woff') format('woff'),
+        url('../fonts/Gerbera-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gerbera';
+    src: url('../fonts/Gerbera-Light.eot');
+    src: url('../fonts/Gerbera-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gerbera-Light.woff2') format('woff2'),
+        url('../fonts/Gerbera-Light.woff') format('woff'),
+        url('../fonts/Gerbera-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}

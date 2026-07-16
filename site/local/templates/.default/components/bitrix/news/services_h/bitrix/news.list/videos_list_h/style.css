@@ -1,0 +1,91 @@
+.hemonc2__videos {
+    margin-top: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .hemonc2__videos {
+        margin-top: 3rem;
+    }
+}
+
+.hemonc2__videos-swiper {
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 560px) {
+    .hemonc2__videos-swiper {
+        margin-right: -1.25rem;
+    }
+}
+
+.hemonc2__videos-link {
+    display: block;
+    border-radius: 1rem;
+    background: var(--green, #007088);
+    padding: 1.05rem 1.25rem;
+    margin-right: .6rem;
+}
+
+.hemonc2__videos-logo {
+    color: var(--white, #FFF);
+    font-size: 0.60238rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.hemonc2__videos-logo span {
+    color: var(--pink, #F6AE9C);
+}
+
+.hemonc2__videos-title {
+    margin-top: .83rem;
+    color: #FFF;
+    font-size: 0.92238rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    min-height: 5rem;
+}
+
+.hemonc2__videos-title span {
+    color: var(--pink, #F6AE9C);
+}
+
+.hemonc2__videos-yt {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M20 30L30.38 24L20 18V30ZM43.12 14.34C43.38 15.28 43.56 16.54 43.68 18.14C43.82 19.74 43.88 21.12 43.88 22.32L44 24C44 28.38 43.68 31.6 43.12 33.66C42.62 35.46 41.46 36.62 39.66 37.12C38.72 37.38 37 37.56 34.36 37.68C31.76 37.82 29.38 37.88 27.18 37.88L24 38C15.62 38 10.4 37.68 8.34 37.12C6.54 36.62 5.38 35.46 4.88 33.66C4.62 32.72 4.44 31.46 4.32 29.86C4.18 28.26 4.12 26.88 4.12 25.68L4 24C4 19.62 4.32 16.4 4.88 14.34C5.38 12.54 6.54 11.38 8.34 10.88C9.28 10.62 11 10.44 13.64 10.32C16.24 10.18 18.62 10.12 20.82 10.12L24 10C32.38 10 37.6 10.32 39.66 10.88C41.46 11.38 42.62 12.54 43.12 14.34Z" fill="%23FF1717"/><path d="M20 30L30.38 24L20 18V30Z" fill="white"/></svg>');
+}
+
+.hemonc2__videos-author {
+    /* margin-top: 2.43rem; */
+    color: #FFF;
+    font-size: 0.50313rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.10063rem;
+    text-transform: uppercase;
+    min-height: 2rem;
+}
+
+.hemonc2__videos-author span {
+    display: block;
+    color: #FFF;
+    font-size: 0.50313rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.02519rem;
+    text-transform: uppercase;
+    margin-top: .25rem;
+}

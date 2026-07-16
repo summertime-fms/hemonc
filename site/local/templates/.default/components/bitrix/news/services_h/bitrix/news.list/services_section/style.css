@@ -1,0 +1,96 @@
+.hemonc2__price {
+    padding: 5rem 0 2.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .hemonc2__price {
+        padding: 3rem 0 1.5rem;
+    }
+}
+
+.hemonc2__price__grid {
+    column-count: 3;
+    column-gap: 3.25rem;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+}
+
+@media screen and (max-width: 768px) {
+    .hemonc2__price__grid {
+        column-count: 1;
+        column-gap: 1.25rem;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+    }
+}
+
+.hemonc2__price__item {
+    break-inside: avoid-column;
+    page-break-inside: avoid;
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 768px) {
+    .hemonc2__price__item {
+        margin-bottom: 2rem;
+    }
+}
+
+.hemonc2__price__top {
+    color: #0F2531;
+    font-family: 'Gerbera', sans-serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    /* 56.25% */
+    padding-bottom: 1rem;
+    border-bottom: .0625rem solid #B3B3B3;
+}
+
+.hemonc2__price__body {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.hemonc2__price__subitem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.hemonc2__price__name {
+    color: #007088;
+    font-family: 'Gerbera', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.125rem;
+}
+
+.hemonc2__price__name.dark {
+    color: #0F2531;
+}
+
+.hemonc2__price__desc {
+    color: #B3B3B3;
+    font-family: 'Gerbera', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.125rem;
+}
+
+.hemonc2__price__price {
+    white-space: nowrap;
+    color: #007088;
+    font-family: 'Gerbera', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.125rem;
+}

@@ -1,0 +1,32 @@
+User-Agent: *
+Disallow: /search
+Disallow: /*?
+Disallow: /*.aspx$
+
+Clean-param: category /feed
+Clean-param: yadclid
+Clean-param: yadordid
+Clean-param: tpclid
+Clean-param: calltouch_tm
+Clean-param: etext
+Clean-param: utm
+Clean-param: phone /contacts
+Sitemap: https://hemonc.ru/sitemap.xml
+
+User-Agent: Yandex
+Disallow: /search
+Disallow: /*?
+Disallow: /*.aspx$
+
+User-Agent: Googlebot
+Disallow: /search
+Disallow: /*?
+Disallow: /*.aspx$
+
+User-Agent: Libwww-perl
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.gif
+Disallow: /

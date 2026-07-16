@@ -1,0 +1,46 @@
+.hemonc2__navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 0 1.5rem;
+    border-radius: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    background: #F4FDFF;
+}
+
+.hemonc2__navigation.--hidden {
+    opacity: 0;
+}
+
+.hemonc2__navigation-link {
+    padding: 1rem 2rem;
+    color: var(--h, #0F2531);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    white-space: nowrap;
+    position: relative;
+}
+
+@media screen and (max-width: 560px) {
+    .hemonc2__navigation-link {
+        padding-inline: 0.625rem;
+    }
+}
+
+.hemonc2__navigation-link:hover {
+    font-weight: 700;
+    color: #007088;
+}
+
+.hemonc2__navigation-link:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: .125rem;
+    background: #007088;
+}

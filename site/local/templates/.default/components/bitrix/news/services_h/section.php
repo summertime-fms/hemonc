@@ -1,0 +1,268 @@
+<?php
+
+/*
+ * AlexBazowsky @github
+ * headachePro bot since aug 2023
+ */
+
+if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
+    exit();
+}
+
+$this->setFrameMode(true);
+
+$APPLICATION->SetPageProperty('canonical', 'https://' . SITE_SERVER_NAME . $APPLICATION->GetCurPage());
+
+$APPLICATION->IncludeComponent(
+    "bitrix:news.detail",
+    "page_text",
+    [
+        "ACTIVE_DATE_FORMAT"        => "j F Y",
+        "ADD_ELEMENT_CHAIN"         => "N",
+        "ADD_SECTIONS_CHAIN"        => "N",
+        "AJAX_MODE"                 => "N",
+        "AJAX_OPTION_ADDITIONAL"    => "",
+        "AJAX_OPTION_HISTORY"       => "N",
+        "AJAX_OPTION_JUMP"          => "N",
+        "AJAX_OPTION_STYLE"         => "N",
+        "BROWSER_TITLE"             => "TITLE",
+        "CACHE_GROUPS"              => "N",
+        "CACHE_TIME"                => "36000000",
+        "CACHE_TYPE"                => "A",
+        "CHECK_DATES"               => "Y",
+        "COMPOSITE_FRAME_MODE"      => "A",
+        "COMPOSITE_FRAME_TYPE"      => "AUTO",
+        "ELEMENT_CODE"              => "services",
+        "ELEMENT_ID"                => "",
+        "FIELD_CODE"                => [],
+        "IBLOCK_ID"                 => "7",
+        "IBLOCK_TYPE"               => "site",
+        "IBLOCK_URL"                => "",
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+        "MESSAGE_404"               => "",
+        "META_DESCRIPTION"          => "DESCRIPTION",
+        "PROPERTY_CODE"             => [],
+        "SET_BROWSER_TITLE"         => "N",
+        "SET_CANONICAL_URL"         => "N",
+        "SET_LAST_MODIFIED"         => "N",
+        "SET_META_DESCRIPTION"      => "N",
+        "SET_META_KEYWORDS"         => "N",
+        "SET_STATUS_404"            => "N",
+        "SET_TITLE"                 => "N",
+        "SHOW_404"                  => "N",
+        "STRICT_SECTION_CHECK"      => "N",
+        "USE_PERMISSIONS"           => "N",
+        "CSS_CLASS_BODY"            => "services-page",
+        "CSS_CLASS_HEADER"          => "default-main-block-header full-width",
+        "HEADER_TEXT_CONTAINER"     => "",
+    ],
+);
+
+$APPLICATION->IncludeComponent(
+    "bitrix:news.detail",
+    "banner_main",
+    [
+        "CHECK_DATES"               => "N",
+        "ADD_ELEMENT_CHAIN"         => "N",
+        "ADD_SECTIONS_CHAIN"        => "N",
+        "AJAX_MODE"                 => "N",
+        "CACHE_GROUPS"              => "N",
+        "CACHE_TIME"                => "36000000",
+        "CACHE_TYPE"                => "A",
+        "ELEMENT_CODE"              => $arParams['ROOT_ELEMENT_CODE'],
+        "ELEMENT_ID"                => "",
+        "IBLOCK_TYPE"               => $arParams["IBLOCK_TYPE"],
+        "IBLOCK_ID"                 => $arParams["IBLOCK_ID"],
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+        "SET_BROWSER_TITLE"         => "N",
+        "SET_CANONICAL_URL"         => "N",
+        "SET_LAST_MODIFIED"         => "N",
+        "SET_META_DESCRIPTION"      => "N",
+        "SET_META_KEYWORDS"         => "N",
+        "SET_STATUS_404"            => "N",
+        "SET_TITLE"                 => "N",
+        "PROPERTY_CODE"             => $arParams["DETAIL_PROPERTY_CODE"],
+        "SHOW_404"                  => "N",
+        'SHOW_BANNER_TITLE'         => 'Y',
+        'SHOW_BANNER_SUBTITLE'      => 'N',
+    ],
+    $component,
+);
+
+$APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "services_section",
+    [
+        "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+        "IBLOCK_ID"   => $arParams["IBLOCK_ID"],
+        "NEWS_COUNT"  => $arParams["NEWS_COUNT"],
+
+        "SORT_BY1"    => $arParams["SORT_BY1"],
+        "SORT_ORDER1" => $arParams["SORT_ORDER1"],
+        "SORT_BY2"    => $arParams["SORT_BY2"],
+        "SORT_ORDER2" => $arParams["SORT_ORDER2"],
+
+        "FILTER_NAME"          => $arParams["FILTER_NAME"],
+        "FIELD_CODE"           => $arParams["LIST_FIELD_CODE"],
+        "PROPERTY_CODE"        => $arParams["LIST_PROPERTY_CODE"],
+        "CHECK_DATES"          => $arParams["CHECK_DATES"],
+        "STRICT_SECTION_CHECK" => $arParams["STRICT_SECTION_CHECK"],
+        "IBLOCK_URL"           => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["news"],
+        "SECTION_URL"          => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["section"],
+        "DETAIL_URL"           => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["detail"],
+        "SEARCH_PAGE"          => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["search"],
+
+        "CACHE_TYPE"   => $arParams["CACHE_TYPE"],
+        "CACHE_TIME"   => $arParams["CACHE_TIME"],
+        "CACHE_FILTER" => $arParams["CACHE_FILTER"],
+        "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+
+        "PREVIEW_TRUNCATE_LEN"      => $arParams["PREVIEW_TRUNCATE_LEN"],
+        "ACTIVE_DATE_FORMAT"        => $arParams["LIST_ACTIVE_DATE_FORMAT"],
+        "SET_TITLE"                 => "Y",
+        "SET_BROWSER_TITLE"         => "Y",
+        "SET_META_KEYWORDS"         => "N",
+        "SET_META_DESCRIPTION"      => "Y",
+        "MESSAGE_404"               => $arParams["MESSAGE_404"],
+        "SET_STATUS_404"            => $arParams["SET_STATUS_404"],
+        "SHOW_404"                  => $arParams["SHOW_404"],
+        "FILE_404"                  => $arParams["FILE_404"],
+        "SET_LAST_MODIFIED"         => $arParams["SET_LAST_MODIFIED"],
+        "INCLUDE_IBLOCK_INTO_CHAIN" => 'N',
+        "ADD_SECTIONS_CHAIN"        => 'Y',
+        "ADD_ELEMENT_CHAIN"         => 'N',
+        "HIDE_LINK_WHEN_NO_DETAIL"  => $arParams["HIDE_LINK_WHEN_NO_DETAIL"],
+
+        "PARENT_SECTION"      => $arResult["VARIABLES"]["SECTION_ID"],
+        "PARENT_SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+        "INCLUDE_SUBSECTIONS" => "Y",
+
+        "DISPLAY_DATE"         => $arParams["DISPLAY_DATE"],
+        "DISPLAY_NAME"         => "Y",
+        "DISPLAY_PICTURE"      => $arParams["DISPLAY_PICTURE"],
+        "DISPLAY_PREVIEW_TEXT" => 'Y',
+        "MEDIA_PROPERTY"       => $arParams["MEDIA_PROPERTY"],
+        "SLIDER_PROPERTY"      => $arParams["SLIDER_PROPERTY"],
+
+        "PAGER_TEMPLATE"                  => $arParams["PAGER_TEMPLATE"],
+        "DISPLAY_TOP_PAGER"               => $arParams["DISPLAY_TOP_PAGER"],
+        "DISPLAY_BOTTOM_PAGER"            => $arParams["DISPLAY_BOTTOM_PAGER"],
+        "PAGER_TITLE"                     => $arParams["PAGER_TITLE"],
+        "PAGER_SHOW_ALWAYS"               => $arParams["PAGER_SHOW_ALWAYS"],
+        "PAGER_DESC_NUMBERING"            => $arParams["PAGER_DESC_NUMBERING"],
+        "PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
+        "PAGER_SHOW_ALL"                  => $arParams["PAGER_SHOW_ALL"],
+        "PAGER_BASE_LINK_ENABLE"          => $arParams["PAGER_BASE_LINK_ENABLE"],
+        "PAGER_BASE_LINK"                 => $arParams["PAGER_BASE_LINK"],
+        "PAGER_PARAMS_NAME"               => $arParams["PAGER_PARAMS_NAME"],
+
+        "USE_RATING"        => $arParams["USE_RATING"],
+        "DISPLAY_AS_RATING" => $arParams["DISPLAY_AS_RATING"],
+        "MAX_VOTE"          => $arParams["MAX_VOTE"],
+        "VOTE_NAMES"        => $arParams["VOTE_NAMES"],
+
+        "USE_SHARE"               => $arParams["LIST_USE_SHARE"],
+        "SHARE_HIDE"              => $arParams["SHARE_HIDE"],
+        "SHARE_TEMPLATE"          => $arParams["SHARE_TEMPLATE"],
+        "SHARE_HANDLERS"          => $arParams["SHARE_HANDLERS"],
+        "SHARE_SHORTEN_URL_LOGIN" => $arParams["SHARE_SHORTEN_URL_LOGIN"],
+        "SHARE_SHORTEN_URL_KEY"   => $arParams["SHARE_SHORTEN_URL_KEY"],
+
+        "TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"],
+    ],
+    $component,
+);
+
+global $doctors_service_detail_filter;
+$APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "doctors_list_h",
+    [
+        "COMPONENT_TEMPLATE"        => ".default",
+        "IBLOCK_TYPE"               => "content",
+        "IBLOCK_ID"                 => "15",
+        "NEWS_COUNT"                => "30",
+        "SORT_BY1"                  => "SORT",
+        "SORT_ORDER1"               => "ASC",
+        "SORT_BY2"                  => "SORT",
+        "SORT_ORDER2"               => "ASC",
+        "FILTER_NAME"               => "doctors_service_detail_filter",
+        "FIELD_CODE"                => ['DETAIL_TEXT', 'DATE_ACTIVE_FROM'],
+        "PROPERTY_CODE"             => ['TITLE'],
+        "CHECK_DATES"               => "Y",
+        "AJAX_MODE"                 => "N",
+        "AJAX_OPTION_JUMP"          => "N",
+        "AJAX_OPTION_STYLE"         => "Y",
+        "AJAX_OPTION_HISTORY"       => "N",
+        "AJAX_OPTION_ADDITIONAL"    => "",
+        "CACHE_TYPE"                => "A",
+        "CACHE_TIME"                => "36000000",
+        "CACHE_FILTER"              => "N",
+        "CACHE_GROUPS"              => "N",
+        "ACTIVE_DATE_FORMAT"        => "j M Y",
+        "SET_TITLE"                 => "N",
+        "SET_BROWSER_TITLE"         => "N",
+        "SET_META_KEYWORDS"         => "N",
+        "SET_META_DESCRIPTION"      => "N",
+        "SET_LAST_MODIFIED"         => "N",
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+        "ADD_SECTIONS_CHAIN"        => "N",
+        "HIDE_LINK_WHEN_NO_DETAIL"  => "N",
+        "PARENT_SECTION"            => "",
+        "PARENT_SECTION_CODE"       => "",
+        "INCLUDE_SUBSECTIONS"       => "N",
+        "STRICT_SECTION_CHECK"      => "N",
+        "DISPLAY_DATE"              => "Y",
+        "DISPLAY_NAME"              => "Y",
+        "DISPLAY_PICTURE"           => "Y",
+        "DISPLAY_PREVIEW_TEXT"      => "Y",
+        "PAGER_TEMPLATE"            => "hemonc_ajax",
+        "DISPLAY_TOP_PAGER"         => "N",
+        "DISPLAY_BOTTOM_PAGER"      => "Y",
+        "SET_STATUS_404"            => "N",
+        "SHOW_404"                  => "N",
+        "MESSAGE_404"               => "",
+    ],
+    $component,
+);
+
+$APPLICATION->IncludeComponent(
+    "bitrix:news.detail",
+    "faq_bg",
+    [
+        "CHECK_DATES"               => "N",
+        "ADD_ELEMENT_CHAIN"         => "N",
+        "ADD_SECTIONS_CHAIN"        => "N",
+        "AJAX_MODE"                 => "N",
+        "CACHE_GROUPS"              => "N",
+        "CACHE_TIME"                => "36000000",
+        "CACHE_TYPE"                => "A",
+        "ELEMENT_CODE"              => "services",
+        "ELEMENT_ID"                => "",
+        "IBLOCK_TYPE"               => $arParams["IBLOCK_TYPE"],
+        "IBLOCK_ID"                 => $arParams["IBLOCK_ID"],
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+        "SET_BROWSER_TITLE"         => "N",
+        "SET_CANONICAL_URL"         => "N",
+        "SET_LAST_MODIFIED"         => "N",
+        "SET_META_DESCRIPTION"      => "N",
+        "SET_META_KEYWORDS"         => "N",
+        "SET_STATUS_404"            => "N",
+        "SET_TITLE"                 => "N",
+        "PROPERTY_CODE"             => $arParams["DETAIL_PROPERTY_CODE"],
+        "SHOW_404"                  => "N",
+    ],
+    $component,
+);
+
+$APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    [
+        "PATH"           => SITE_TEMPLATE_PATH . "/parts/hemonc2_cta_formBitx24.php",
+        "AREA_FILE_SHOW" => "file",
+    ],
+);
+
+\Bitrix\Main\Loader::includeModule('dev2fun.opengraph');
+\Dev2fun\Module\OpenGraph::Show($arResult["ID"], 'section');

@@ -1,0 +1,69 @@
+User-agent: *
+Disallow: /aspnet_client/
+Disallow: /bin/
+Disallow: /config/
+Disallow: /data/
+Disallow: /install/
+Disallow: /macroScripts/
+Disallow: /masterpages/
+Disallow: /umbraco/
+Disallow: /umbraco_client/
+Disallow: /usercontrols/
+Disallow: /xslt/
+Disallow: /*?doctor=*
+Disallow: /*aspx
+Disallow: /*?
+
+User-Agent: Googlebot
+Disallow: /aspnet_client/
+Disallow: /bin/
+Disallow: /config/
+Disallow: /data/
+Disallow: /install/
+Disallow: /macroScripts/
+Disallow: /masterpages/
+Disallow: /umbraco/
+Disallow: /umbraco_client/
+Disallow: /usercontrols/
+Disallow: /xslt/
+Disallow: /*?doctor=*
+Disallow: /*aspx
+Disallow: /*?
+
+User-Agent: Yandex
+Disallow: /aspnet_client/
+Disallow: /bin/
+Disallow: /config/
+Disallow: /data/
+Disallow: /install/
+Disallow: /macroScripts/
+Disallow: /masterpages/
+Disallow: /umbraco/
+Disallow: /umbraco_client/
+Disallow: /usercontrols/
+Disallow: /xslt/
+Disallow: /*?doctor=*
+Disallow: /*aspx
+Disallow: /*?
+Clean-param: phone /contacts
+Clean-param: phone /contacts/
+Clean-param: tpclid /
+Clean-param: tpclid /education
+Clean-param: tpclid /education/
+Clean-param: doctor&calltouch_tm
+
+User-agent: Libwww-perl
+Disallow: /
+Disallow: /migrebot-update/
+Disallow: /python/
+Disallow: /scripts/
+Disallow: /faq/*
+Disallow: *.aspx
+Disallow: /payment/
+Disallow: /*?author=
+Disallow: /*?doctor=
+Disallow: /show-bot*
+Disallow: /*aspx
+Disallow: /*?
+
+Sitemap: https://hemonc.ru/sitemap.xml

@@ -1,0 +1,122 @@
+.hemonc2__reviews {
+    margin-top: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .hemonc2__reviews {
+        margin-top: 3rem;
+    }
+}
+
+.hemonc2__reviews-swiper {
+    margin-top: 2rem;
+}
+
+.hemonc2__reviews-item {
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    background: #F4FDFF;
+    margin-left: .6rem;
+    height: auto;
+}
+
+.hemonc2__reviews-name {
+    color: var(--green, #007088);
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.hemonc2__reviews-date {
+    margin-top: .25rem;
+    color: var(--h, #0F2531);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    opacity: .2;
+}
+
+.hemonc2__reviews-stars {
+    display: flex;
+    margin-top: .5rem;
+}
+
+.hemonc2__reviews-star {
+    background-size: 100%;
+    width: 1.875rem;
+    height: 1.875rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M15.0001 21.625L10.3751 25.1563C10.146 25.3438 9.89597 25.4325 9.62514 25.4225C9.35431 25.4125 9.11472 25.3342 8.90639 25.1875C8.69806 25.0417 8.53681 24.8438 8.42264 24.5938C8.30847 24.3438 8.30306 24.0729 8.40639 23.7813L10.1876 18L5.65639 14.7813C5.40639 14.6146 5.25014 14.3958 5.18764 14.125C5.12514 13.8542 5.13556 13.6042 5.21889 13.375C5.30222 13.1458 5.44806 12.9425 5.65639 12.765C5.86472 12.5875 6.11472 12.4992 6.40639 12.5H12.0001L13.8126 6.50001C13.9168 6.20834 14.0785 5.98417 14.2976 5.82751C14.5168 5.67084 14.751 5.59292 15.0001 5.59376C15.2501 5.59376 15.4847 5.67209 15.7039 5.82876C15.9231 5.98542 16.0843 6.20917 16.1876 6.50001L18.0001 12.5H23.5939C23.8856 12.5 24.1356 12.5888 24.3439 12.7663C24.5522 12.9438 24.6981 13.1467 24.7814 13.375C24.8647 13.6042 24.8751 13.8542 24.8126 14.125C24.7501 14.3958 24.5939 14.6146 24.3439 14.7813L19.8126 18L21.5939 23.7813C21.6981 24.0729 21.6931 24.3438 21.5789 24.5938C21.4647 24.8438 21.3031 25.0417 21.0939 25.1875C20.8856 25.3333 20.646 25.4117 20.3751 25.4225C20.1043 25.4333 19.8543 25.3446 19.6251 25.1563L15.0001 21.625Z" fill="%23F6AE9C"/></svg>');
+}
+
+.hemonc2__reviews-text {
+    margin-top: 1rem;
+    color: var(--h, #0F2531);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    max-height: 12rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.hemonc2__reviews-link {
+    margin-top: 1rem;
+    display: block;
+    max-width: max-content;
+    margin-right: auto;
+    color: var(--green, #007088);
+    opacity: 1;
+}
+
+.hemonc2__reviews-link::after {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none"><path d="M4.5 8.5H16.5M16.5 8.5L13 5M16.5 8.5L13 12" stroke="%23007088"/></svg>');
+}
+
+.hemonc2__reviews-source {
+    width: 5.625rem;
+    height: 1.625rem;
+    position: relative;
+    margin-right: auto;
+    margin-top: 1.5rem;
+}
+
+.hemonc2__reviews-source img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.hemonc2__reviews-dots {
+    text-align: center;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hemonc2__reviews-dots button {
+    background-color: #007088;
+    opacity: .2;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.hemonc2__reviews-dots .slick-active button {
+    opacity: 1;
+    width: 0.75rem;
+    height: 0.75rem;
+}

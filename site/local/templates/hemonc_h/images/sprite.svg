@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>
+    <clipPath id="clip0_4061_1429">
+        <rect width="20" height="20" fill="white"/>
+    </clipPath>
+
+    <clipPath id="clip0_4013_803">
+        <rect width="20" height="20" fill="white" transform="matrix(-1 0 0 -1 20 20)"/>
+    </clipPath>
+</defs>
+    <symbol id="slide-arrow" viewBox="0 0 24 24" fill="none"><g fill="none">
+        <path d="M23.4317 13.0607C24.0175 12.4749 24.0175 11.5251 23.4317 10.9393L13.8858 1.3934C13.3 0.807614 12.3503 0.807614 11.7645 1.3934C11.1787 1.97919 11.1787 2.92893 11.7645 3.51472L20.2498 12L11.7645 20.4853C11.1787 21.0711 11.1787 22.0208 11.7645 22.6066C12.3503 23.1924 13.3 23.1924 13.8858 22.6066L23.4317 13.0607ZM0.387207 12L0.387207 13.5L22.3711 13.5L22.3711 12V10.5L0.387207 10.5L0.387207 12Z" fill="currentColor"/>
+    </g></symbol>
+</svg>

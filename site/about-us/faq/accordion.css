@@ -1,0 +1,100 @@
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.accordion-item {
+    padding: 24px 12px;
+    box-shadow: 0px 0px 20px 0px #0000000a;
+    border-radius: 8px;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 120%;
+    font-weight: 400;
+    transition: padding 0.2s ease-in-out;
+    color: #007088;
+}
+
+.accordion-arrow {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.accordion-arrow svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    transition: color 0.2s ease-in-out;
+}
+
+.accordion-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.accordion-content a {
+    text-decoration: underline;
+}
+
+.accordion-content ul {
+    list-style: disc;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.accordion-content ol {
+    list-style: decimal;
+    list-style-type: decimal;
+    padding-left: 15px;
+}
+
+.accordion-item.active .accordion-header {
+    padding-bottom: 20px;
+}
+
+.accordion-item.active .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-item.active .accordion-arrow svg {
+    color: var(--pink, #f6ae9c);
+}
+
+@media (min-width: 1200px) {
+    .accordion-item {
+        padding: 24px;
+    }
+
+    .accordion-header {
+        font-size: 18px;
+    }
+
+    .accordion-content p,
+    .accordion-content a,
+    .accordion-content span,
+    .accordion-content b,
+    .accordion-content strong,
+    .accordion-content i,
+    .accordion-content li {
+        font-size: 16px;
+    }
+}
