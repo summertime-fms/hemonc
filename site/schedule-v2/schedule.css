@@ -304,8 +304,8 @@ main {
   + .schedule-filters__nearest-box::after {
   content: "";
   position: absolute;
-  left: 7px;
-  top: 3px;
+  left: 5px;
+  top: 0px;
   width: 7px;
   height: 12px;
   border-right: 2px solid #fff;

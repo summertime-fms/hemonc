@@ -24,6 +24,84 @@ document.addEventListener("DOMContentLoaded", () => {
     tomSelect.wrapper.classList.toggle("has-selected-value", hasValue);
   };
 
+  const refreshTomSelect = (tomSelect) => {
+    updateClearButtonState(tomSelect);
+    tomSelect.refreshOptions(false);
+    tomSelect.refreshItems();
+  };
+
+  const getOptionValue = (optionElement) => {
+    return optionElement.dataset.value || optionElement.getAttribute("data-value");
+  };
+
+  const bindClearButton = (tomSelect) => {
+    const clearSelectedValues = (event) => {
+      if (!(event.target instanceof Element) || !event.target.closest(".clear-button")) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      tomSelect.clear();
+      tomSelect.close();
+      refreshTomSelect(tomSelect);
+    };
+
+    tomSelect.wrapper.addEventListener("mousedown", clearSelectedValues, true);
+    tomSelect.wrapper.addEventListener("click", clearSelectedValues, true);
+  };
+
+  const bindMultiselectOptionToggle = (tomSelect) => {
+    if (!tomSelect.input.multiple) {
+      return;
+    }
+
+    let toggledValue = null;
+
+    const toggleSelectedOption = (event) => {
+      if (!(event.target instanceof Element)) {
+        return;
+      }
+
+      const optionElement = event.target.closest("[data-selectable]");
+
+      if (!optionElement) {
+        return;
+      }
+
+      const value = getOptionValue(optionElement);
+
+      if (!value) {
+        return;
+      }
+
+      if (event.type === "click" && value === toggledValue) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        toggledValue = null;
+        return;
+      }
+
+      if (!optionElement.classList.contains("selected")) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      toggledValue = value;
+      tomSelect.removeItem(value);
+      refreshTomSelect(tomSelect);
+    };
+
+    tomSelect.dropdown_content.addEventListener("mousedown", toggleSelectedOption, true);
+    tomSelect.dropdown_content.addEventListener("click", toggleSelectedOption, true);
+  };
+
   const renderOptionWithCheckbox = (data, escape) => {
     return `
       <div class="schedule-filter__option">
@@ -82,12 +160,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     tomSelect.control.setAttribute("data-button-label", buttonLabel);
+    bindClearButton(tomSelect);
+    bindMultiselectOptionToggle(tomSelect);
     updateClearButtonState(tomSelect);
     tomSelects.push(tomSelect);
   });
 
   document.addEventListener("click", (event) => {
-    if (event.target.closest(".schedule-filter")) {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
+    if (event.target.closest(".schedule-filter") || event.target.closest(".ts-dropdown")) {
       return;
     }
 
