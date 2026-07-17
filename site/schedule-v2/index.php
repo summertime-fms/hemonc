@@ -29,7 +29,7 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
   window.SCHEDULE_V2_PREVIEW = true;
 </script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css">
+<link rel="stylesheet" href="./tom-select/tom-select.min.css">
 <link rel="stylesheet" href="./schedule.css">
 
 <section class="schedule">
@@ -148,7 +148,7 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
   </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+<script src="./tom-select/tom-select.complete.min.js"></script>
 <script src="./schedule.js"></script>
 
 <!-- <script>

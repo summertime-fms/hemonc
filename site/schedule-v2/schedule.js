@@ -1,7 +1,9 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const selects = Array.from(document.querySelectorAll(".schedule-filter__select"));
+  const selects = Array.from(
+    document.querySelectorAll(".schedule-filter__select"),
+  );
 
   if (!selects.length || typeof window.TomSelect === "undefined") {
     return;
@@ -31,12 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const getOptionValue = (optionElement) => {
-    return optionElement.dataset.value || optionElement.getAttribute("data-value");
+    return (
+      optionElement.dataset.value || optionElement.getAttribute("data-value")
+    );
   };
 
   const bindClearButton = (tomSelect) => {
     const clearSelectedValues = (event) => {
-      if (!(event.target instanceof Element) || !event.target.closest(".clear-button")) {
+      if (
+        !(event.target instanceof Element) ||
+        !event.target.closest(".clear-button")
+      ) {
         return;
       }
 
@@ -98,8 +105,16 @@ document.addEventListener("DOMContentLoaded", () => {
       refreshTomSelect(tomSelect);
     };
 
-    tomSelect.dropdown_content.addEventListener("mousedown", toggleSelectedOption, true);
-    tomSelect.dropdown_content.addEventListener("click", toggleSelectedOption, true);
+    tomSelect.dropdown_content.addEventListener(
+      "mousedown",
+      toggleSelectedOption,
+      true,
+    );
+    tomSelect.dropdown_content.addEventListener(
+      "click",
+      toggleSelectedOption,
+      true,
+    );
   };
 
   const renderOptionWithCheckbox = (data, escape) => {
@@ -171,7 +186,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (event.target.closest(".schedule-filter") || event.target.closest(".ts-dropdown")) {
+    if (
+      event.target.closest(".schedule-filter") ||
+      event.target.closest(".ts-dropdown")
+    ) {
       return;
     }
 

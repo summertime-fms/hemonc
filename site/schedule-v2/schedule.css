@@ -59,7 +59,7 @@ main {
   width: auto;
   min-width: 0;
   min-height: 0;
-  padding: 15px 20px;
+  padding: 15px 20px !important;
   border: 1px solid rgba(236, 240, 242, 1);
   border-radius: 50px;
   background: var(--schedule-bg);
@@ -68,9 +68,12 @@ main {
   font-size: 15px;
   line-height: 1.2;
   cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.schedule-filter__select.has-selected-value .ts-control {
+  background: var(--schedule-accent);
+  border-color: var(--schedule-accent);
 }
 
 .schedule-filter .ts-wrapper.focus .ts-control,
@@ -78,6 +81,7 @@ main {
   box-shadow: none;
 }
 
+.schedule-filter .plugin-dropdown_input.focus.dropdown-active .ts-control,
 .schedule-filter .ts-wrapper .ts-control:hover {
   border-color: var(--schedule-accent);
 }
@@ -114,23 +118,51 @@ main {
   display: none;
 }
 
+.ts-wrapper.multi .ts-control > div {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+}
+
 .schedule-filter .ts-wrapper.has-selected-value .ts-control {
   padding-right: 52px;
 }
 
 .schedule-filter .ts-wrapper.plugin-clear_button .clear-button {
+  position: relative;
   display: none;
-  right: 14px;
-  width: 22px;
-  height: 22px;
-  margin: auto 0;
-  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0 10px;
   color: var(--schedule-muted);
-  font-size: 22px;
-  line-height: 19px;
+  font-size: 0;
   opacity: 1;
-  top: 0;
-  bottom: 0;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+
+.schedule-filter .ts-wrapper.plugin-clear_button .clear-button::before,
+.schedule-filter .ts-wrapper.plugin-clear_button .clear-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 90%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.schedule-filter .ts-wrapper.plugin-clear_button .clear-button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.schedule-filter .ts-wrapper.plugin-clear_button .clear-button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .schedule-filter
