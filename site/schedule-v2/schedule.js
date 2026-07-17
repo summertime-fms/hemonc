@@ -19,6 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const getOptionText = (data) => data.text || data.label || "";
 
+  const updateClearButtonState = (tomSelect) => {
+    const hasValue = tomSelect.items.length > 0;
+    tomSelect.wrapper.classList.toggle("has-selected-value", hasValue);
+  };
+
   const renderOptionWithCheckbox = (data, escape) => {
     return `
       <div class="schedule-filter__option">
@@ -39,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   selects.forEach((selectElement) => {
     const filterType = selectElement.dataset.filter;
     const isFormat = filterType === "format";
+    const buttonLabel = selectElement.dataset.placeholder || "";
 
     if (isFormat) {
       selectElement.selectedIndex = -1;
@@ -66,12 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
       onDropdownOpen() {
         closeOtherDropdowns(this);
       },
+      onChange() {
+        updateClearButtonState(this);
+      },
     });
 
     if (isFormat) {
       tomSelect.control_input.setAttribute("readonly", "readonly");
     }
 
+    tomSelect.control.setAttribute("data-button-label", buttonLabel);
+    updateClearButtonState(tomSelect);
     tomSelects.push(tomSelect);
   });
 

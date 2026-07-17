@@ -1,40 +1,38 @@
+main {
+  background: rgba(245, 247, 248, 1);
+}
+
 .schedule {
   --schedule-text: #1d2a32;
   --schedule-muted: #6f828d;
   --schedule-border: #d9e4e9;
-  --schedule-accent: #2f7b9f;
+  --schedule-accent: #007088;
   --schedule-bg: #ffffff;
   --schedule-soft: #f4f8fa;
 
   color: var(--schedule-text);
 }
 
-.schedule *,
-.schedule *::before,
-.schedule *::after {
-  box-sizing: border-box;
-}
-
 .schedule .wrapper {
-  width: min(100%, 1180px);
-  margin: 0 auto;
-  padding: 0 16px;
+  padding-top: 18px;
+  padding-bottom: 100px;
 }
 
 .schedule-filters {
-  margin: 0 0 24px;
+  margin: 0 0 40px;
 }
 
 .schedule-filters__row {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   align-items: center;
 }
 
 .schedule-filter {
   position: relative;
-  display: block;
+  display: inline-block;
+  width: fit-content;
   min-width: 0;
 }
 
@@ -51,17 +49,22 @@
 }
 
 .schedule-filter .ts-wrapper {
-  min-height: 48px;
+  display: inline-block;
+  width: auto;
+  min-height: 0;
 }
 
 .schedule-filter .ts-control {
-  min-height: 48px;
-  padding: 0 42px 0 16px;
-  border: 1px solid var(--schedule-border);
-  border-radius: 10px;
+  position: relative;
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  padding: 15px 20px;
+  border: 1px solid rgba(236, 240, 242, 1);
+  border-radius: 50px;
   background: var(--schedule-bg);
   box-shadow: none;
-  color: var(--schedule-text);
+  color: var(--schedule-accent);
   font-size: 15px;
   line-height: 1.2;
   cursor: pointer;
@@ -72,13 +75,28 @@
 
 .schedule-filter .ts-wrapper.focus .ts-control,
 .schedule-filter .ts-wrapper.dropdown-active .ts-control {
+  box-shadow: none;
+}
+
+.schedule-filter .ts-wrapper .ts-control:hover {
   border-color: var(--schedule-accent);
-  box-shadow: 0 0 0 3px rgba(47, 123, 159, 0.12);
 }
 
 .schedule-filter .ts-control > input {
-  min-width: 4px;
-  font-size: 15px;
+  position: absolute;
+  width: 1px !important;
+  min-width: 0;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.schedule-filter .ts-wrapper:not(.has-selected-value) .ts-control::before {
+  content: attr(data-button-label);
+  color: var(--schedule-accent);
+  font-weight: 400;
+  font-size: 16px;
+  white-space: nowrap;
 }
 
 .schedule-filter .ts-control .item {
@@ -86,7 +104,7 @@
   padding: 0;
   background: transparent;
   border: 0;
-  color: var(--schedule-text);
+  color: var(--schedule-accent);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -96,12 +114,13 @@
   display: none;
 }
 
-.schedule-filter .ts-wrapper.multi.has-items .ts-control {
-  padding-right: 70px;
+.schedule-filter .ts-wrapper.has-selected-value .ts-control {
+  padding-right: 52px;
 }
 
 .schedule-filter .ts-wrapper.plugin-clear_button .clear-button {
-  right: 40px;
+  display: none;
+  right: 14px;
   width: 22px;
   height: 22px;
   margin: auto 0;
@@ -114,27 +133,14 @@
   bottom: 0;
 }
 
+.schedule-filter
+  .ts-wrapper.plugin-clear_button.has-selected-value
+  .clear-button {
+  display: block;
+}
+
 .schedule-filter .ts-wrapper.plugin-clear_button .clear-button:hover {
   color: var(--schedule-text);
-}
-
-.schedule-filter .ts-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  z-index: 1;
-  width: 8px;
-  height: 8px;
-  border-right: 1.5px solid var(--schedule-muted);
-  border-bottom: 1.5px solid var(--schedule-muted);
-  pointer-events: none;
-  transform: translateY(-70%) rotate(45deg);
-  transition: transform 0.2s ease;
-}
-
-.schedule-filter .ts-wrapper.dropdown-active::after {
-  transform: translateY(-30%) rotate(225deg);
 }
 
 .schedule-filter .ts-dropdown {
@@ -256,7 +262,7 @@
   gap: 10px;
   min-height: 48px;
   color: var(--schedule-text);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.25;
   cursor: pointer;
   user-select: none;
@@ -272,12 +278,11 @@
 
 .schedule-filters__nearest-box {
   position: relative;
-  flex: 0 0 22px;
-  width: 22px;
-  height: 22px;
-  border: 1px solid var(--schedule-border);
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c4dce2;
   border-radius: 6px;
-  background: #fff;
   transition:
     border-color 0.2s ease,
     background 0.2s ease,
@@ -309,6 +314,7 @@
 }
 
 .schedule-filters__nearest-text {
+  color: var(--schedule-accent);
   min-width: 0;
 }
 
@@ -406,10 +412,6 @@
 }
 
 @media (min-width: 640px) {
-  .schedule-filters__row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .doctor-card__body {
     grid-template-columns: 128px 1fr;
     align-items: start;
@@ -422,26 +424,22 @@
 }
 
 @media (min-width: 1024px) {
-  .schedule .wrapper {
-    padding: 0 24px;
-  }
-
   .schedule-filters__row {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 10px;
   }
 
   .schedule-filter {
-    flex: 0 0 210px;
+    flex: 0 0 fit-content;
   }
 
   .schedule-filter--format {
-    flex-basis: 230px;
+    flex-basis: auto;
   }
 
   .schedule-filters__nearest {
-    margin-left: 2px;
+    margin-left: 10px;
   }
 
   .doctor-card {
