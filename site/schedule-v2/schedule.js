@@ -38,6 +38,40 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   };
 
+  const positionMobileDropdown = (tomSelect) => {
+    if (!window.matchMedia("(max-width: 1023px)").matches) {
+      tomSelect.dropdown.style.removeProperty("--schedule-filter-dropdown-top");
+      return;
+    }
+
+    const viewportGap = 16;
+    const buttonGap = 8;
+    const dropdownHeight = Math.min(
+      tomSelect.dropdown.offsetHeight || 460,
+      460,
+      window.innerHeight - viewportGap * 2,
+    );
+    let controlRect = tomSelect.control.getBoundingClientRect();
+    let dropdownTop = controlRect.bottom + buttonGap;
+    const overflowBottom =
+      dropdownTop + dropdownHeight + viewportGap - window.innerHeight;
+
+    if (overflowBottom > 0) {
+      window.scrollBy({
+        top: overflowBottom,
+        behavior: "auto",
+      });
+
+      controlRect = tomSelect.control.getBoundingClientRect();
+      dropdownTop = controlRect.bottom + buttonGap;
+    }
+
+    tomSelect.dropdown.style.setProperty(
+      "--schedule-filter-dropdown-top",
+      `${Math.max(viewportGap, dropdownTop)}px`,
+    );
+  };
+
   const bindClearButton = (tomSelect) => {
     const clearSelectedValues = (event) => {
       if (
@@ -164,6 +198,13 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       onDropdownOpen() {
         closeOtherDropdowns(this);
+
+        requestAnimationFrame(() => {
+          positionMobileDropdown(this);
+        });
+      },
+      onDropdownClose() {
+        this.dropdown.style.removeProperty("--schedule-filter-dropdown-top");
       },
       onChange() {
         updateClearButtonState(this);

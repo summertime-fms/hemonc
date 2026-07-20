@@ -14,7 +14,6 @@ main {
 }
 
 .schedule .wrapper {
-  padding-top: 18px;
   padding-bottom: 100px;
 }
 
@@ -22,18 +21,30 @@ main {
   margin: 0 0 40px;
 }
 
+.schedule-filters__subrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-right: -24px;
+}
+
 .schedule-filters__row {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 5px;
   align-items: center;
 }
 
 .schedule-filter {
   position: relative;
-  display: inline-block;
+  display: block;
   width: fit-content;
   min-width: 0;
+  flex-shrink: 0;
+  min-height: 51px;
 }
 
 .schedule-filter__label {
@@ -69,6 +80,10 @@ main {
   line-height: 1.2;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.schedule-filter__select {
+  height: 0;
 }
 
 .schedule-filter__select.has-selected-value .ts-control {
@@ -177,6 +192,7 @@ main {
 
 .schedule-filter .ts-dropdown {
   width: min(350px, calc(100vw - 32px)) !important;
+  max-width: 350px;
   max-height: 460px;
   margin-top: 8px;
   border: 0;
@@ -198,12 +214,18 @@ main {
 .schedule-filter .dropdown-input {
   width: 100%;
   min-height: 40px;
-  padding: 0 12px;
-  border: 1px solid var(--schedule-border);
-  border-radius: 8px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
   color: var(--schedule-text);
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 400;
   outline: none;
+  background: #f4f4f4;
+}
+
+.schedule-filter .dropdown-input:placeholder {
+  color: #acacac;
 }
 
 .schedule-filter .dropdown-input:focus {
@@ -530,6 +552,24 @@ main {
   font-weight: 600;
 }
 
+@media (max-width: 1023px) {
+  .schedule-filter .ts-dropdown {
+    position: fixed !important;
+    top: var(--schedule-filter-dropdown-top, 96px) !important;
+    bottom: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - 40px) !important;
+    max-height: min(460px, calc(100dvh - 128px));
+    margin-top: 0;
+  }
+
+  .schedule-filter .ts-dropdown-content {
+    max-height: min(404px, calc(100dvh - 184px));
+  }
+}
+
 @media (min-width: 640px) {
   .doctor-card__photo {
     width: 161px;
@@ -537,6 +577,10 @@ main {
 }
 
 @media (min-width: 1024px) {
+  .schedule-filter .ts-dropdown {
+    margin-top: 60px;
+  }
+
   .schedule-filters__row {
     display: flex;
     flex-wrap: wrap;
@@ -545,6 +589,13 @@ main {
 
   .schedule-filter {
     flex: 0 0 fit-content;
+  }
+
+  .schedule-filters__subrow {
+    overflow: unset;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
   }
 
   .schedule-filter--format {

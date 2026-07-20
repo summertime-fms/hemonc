@@ -36,84 +36,86 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
   <div class="wrapper">
     <form class="schedule-filters" aria-label="Фильтры расписания">
       <div class="schedule-filters__row">
-        <label class="schedule-filter">
-          <span class="schedule-filter__label">Специализация врача</span>
-          <select
-            class="schedule-filter__select"
-            name="specialization[]"
-            multiple
-            data-filter="specialization"
-            data-placeholder="Специализация врача"
-          >
-            <optgroup label="Онкология">
-              <option value="oncologist">Онколог</option>
-              <option value="chemotherapist">Химиотерапевт</option>
-              <option value="mammologist">Маммолог</option>
-              <option value="onco-gynecologist">Онкогинеколог</option>
-            </optgroup>
-            <optgroup label="Диагностика">
-              <option value="radiologist">Радиолог</option>
-              <option value="ultrasound">Врач УЗИ</option>
-              <option value="endoscopist">Эндоскопист</option>
-            </optgroup>
-            <optgroup label="Поддерживающая терапия">
-              <option value="hematologist">Гематолог</option>
-              <option value="nutritionist">Диетолог</option>
-              <option value="psychotherapist">Психотерапевт</option>
-            </optgroup>
-          </select>
-        </label>
+        <div class="schedule-filters__subrow">
+          <label class="schedule-filter">
+            <span class="schedule-filter__label">Специализация врача</span>
+            <select
+              class="schedule-filter__select"
+              name="specialization[]"
+              multiple
+              data-filter="specialization"
+              data-placeholder="Специализация врача"
+            >
+              <optgroup label="Онкология">
+                <option value="oncologist">Онколог</option>
+                <option value="chemotherapist">Химиотерапевт</option>
+                <option value="mammologist">Маммолог</option>
+                <option value="onco-gynecologist">Онкогинеколог</option>
+              </optgroup>
+              <optgroup label="Диагностика">
+                <option value="radiologist">Радиолог</option>
+                <option value="ultrasound">Врач УЗИ</option>
+                <option value="endoscopist">Эндоскопист</option>
+              </optgroup>
+              <optgroup label="Поддерживающая терапия">
+                <option value="hematologist">Гематолог</option>
+                <option value="nutritionist">Диетолог</option>
+                <option value="psychotherapist">Психотерапевт</option>
+              </optgroup>
+            </select>
+          </label>
 
-        <label class="schedule-filter">
-          <span class="schedule-filter__label">Заболевание</span>
-          <select
-            class="schedule-filter__select"
-            name="disease[]"
-            multiple
-            data-filter="disease"
-            data-placeholder="Заболевание"
-          >
-            <option value="breast-cancer">Рак молочной железы</option>
-            <option value="lung-cancer">Рак лёгкого</option>
-            <option value="colon-cancer">Колоректальный рак</option>
-            <option value="lymphoma">Лимфома</option>
-            <option value="melanoma">Меланома</option>
-            <option value="prostate-cancer">Рак предстательной железы</option>
-          </select>
-        </label>
+          <label class="schedule-filter">
+            <span class="schedule-filter__label">Заболевание</span>
+            <select
+              class="schedule-filter__select"
+              name="disease[]"
+              multiple
+              data-filter="disease"
+              data-placeholder="Заболевание"
+            >
+              <option value="breast-cancer">Рак молочной железы</option>
+              <option value="lung-cancer">Рак лёгкого</option>
+              <option value="colon-cancer">Колоректальный рак</option>
+              <option value="lymphoma">Лимфома</option>
+              <option value="melanoma">Меланома</option>
+              <option value="prostate-cancer">Рак предстательной железы</option>
+            </select>
+          </label>
 
-        <label class="schedule-filter">
-          <span class="schedule-filter__label">Услуга</span>
-          <select
-            class="schedule-filter__select"
-            name="service[]"
-            multiple
-            data-filter="service"
-            data-placeholder="Услуга"
-          >
-            <option value="primary-consultation">Первичная консультация</option>
-            <option value="second-opinion">Второе мнение</option>
-            <option value="chemotherapy">Химиотерапия</option>
-            <option value="check-up">Онкологический чек-ап</option>
-            <option value="diagnostics">Диагностика</option>
-            <option value="support-therapy">Поддерживающая терапия</option>
-          </select>
-        </label>
+          <label class="schedule-filter">
+            <span class="schedule-filter__label">Услуга</span>
+            <select
+              class="schedule-filter__select"
+              name="service[]"
+              multiple
+              data-filter="service"
+              data-placeholder="Услуга"
+            >
+              <option value="primary-consultation">Первичная консультация</option>
+              <option value="second-opinion">Второе мнение</option>
+              <option value="chemotherapy">Химиотерапия</option>
+              <option value="check-up">Онкологический чек-ап</option>
+              <option value="diagnostics">Диагностика</option>
+              <option value="support-therapy">Поддерживающая терапия</option>
+            </select>
+          </label>
 
-        <label class="schedule-filter schedule-filter--format">
-          <span class="schedule-filter__label">Формат приёма</span>
-          <select
-            class="schedule-filter__select"
-            name="format"
-            data-filter="format"
-            data-placeholder="Формат приёма"
-          >
-            <option value="any">Любой</option>
-            <option value="clinic">Очно в клинике</option>
-            <option value="online">Онлайн-консультация (дистанционно)</option>
-            <option value="home">Выезд на дом</option>
-          </select>
-        </label>
+          <label class="schedule-filter schedule-filter--format">
+            <span class="schedule-filter__label">Формат приёма</span>
+            <select
+              class="schedule-filter__select"
+              name="format"
+              data-filter="format"
+              data-placeholder="Формат приёма"
+            >
+              <option value="any">Любой</option>
+              <option value="clinic">Очно в клинике</option>
+              <option value="online">Онлайн-консультация (дистанционно)</option>
+              <option value="home">Выезд на дом</option>
+            </select>
+          </label>
+        </div>
 
         <label class="schedule-filters__nearest">
           <input
