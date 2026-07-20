@@ -1,3 +1,7 @@
+.page-wrap {
+  min-width: 360px;
+}
+
 main {
   background: rgba(245, 247, 248, 1);
 }
@@ -5,10 +9,13 @@ main {
 .schedule {
   --schedule-text: #0f2531;
   --schedule-muted: #767676;
-  --schedule-border: #d9e4e9;
+  --schedule-border: #e1e1e1;
   --schedule-accent: #007088;
   --schedule-bg: #ffffff;
   --schedule-soft: #f4f8fa;
+
+  --color-orange: #fd853a;
+  --color-violet: #6875d8;
 
   color: var(--schedule-text);
 }
@@ -40,6 +47,7 @@ main {
   flex-wrap: wrap;
   gap: 5px;
   align-items: center;
+  margin-right: auto;
 }
 
 .schedule-filter {
@@ -137,7 +145,10 @@ main {
   display: none;
 }
 
-.schedule-filter .ts-wrapper.has-selected-extra .ts-control .item:first-of-type {
+.schedule-filter
+  .ts-wrapper.has-selected-extra
+  .ts-control
+  .item:first-of-type {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -404,7 +415,6 @@ main {
   font-size: 16px;
   line-height: 1.25;
   cursor: pointer;
-  margin-left: auto;
 }
 
 .schedule-filters__reset-btn[hidden] {
@@ -448,25 +458,73 @@ main {
 
 .doctor-card {
   display: grid;
-  gap: 20px;
-  padding: 30px;
+  padding: 10px 0;
   box-shadow: 0px 15px 21.6px 0px rgba(186, 204, 213, 0.2);
-  border-radius: 40px;
+  border: 2px solid rgba(236, 240, 242, 1);
+  border-radius: 20px;
   background: #fff;
+}
+
+.doctor-card__header {
+  padding: 10px;
+  border-bottom: 1px solid #eef2f3;
+}
+
+.doctor-card__type-item {
+  font-size: 14px;
+  line-height: 100%;
+  position: relative;
+  padding: 5px 10px 5px 19px;
+  border-radius: 50px;
+  border: 2px solid var(--schedule-border);
+  color: var(--schedule-muted);
+}
+
+.doctor-card__type-item:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--schedule-border);
+}
+
+.type_ftf {
+  color: var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+.type_ftf:before {
+  background: var(--color-orange);
+}
+
+.type_online {
+  color: var(--color-violet);
+  border-color: var(--color-violet);
+}
+
+.type_online:before {
+  background: var(--color-violet);
 }
 
 .doctor-card__body {
   display: flex;
-  gap: 30px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
 }
 
 .doctor-card__photo {
   position: relative;
-  flex: 0 0 161px;
-  width: 161px;
-  height: 161px;
+  flex: 0 0 80px;
+  width: 80px;
+  height: 80px;
   overflow: hidden;
-  border-radius: 30px;
+  border-radius: 50%;
   background: var(--schedule-soft);
 }
 
@@ -487,7 +545,7 @@ main {
 
 .doctor-card__name {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 130%;
   margin-bottom: 10px;
 }
@@ -497,7 +555,11 @@ main {
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.doctor-card__row .doctor-card__type {
+  display: none;
 }
 
 .doctor-card__specializations,
@@ -505,6 +567,9 @@ main {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.doctor-card__type {
   gap: 10px;
 }
 
@@ -514,25 +579,37 @@ main {
   gap: 10px;
 }
 
-.doctor-card__specializations,
-.doctor-card__type {
-  display: flex;
-  flex-wrap: wrap;
+.service-details {
+  margin-bottom: 30px;
 }
 
-.doctor-card__specializations-item,
-.doctor-card__type-item {
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--schedule-soft);
+.doctor-card__footer {
+  padding: 0 20px 20px;
+}
+
+.doctor-card__footer .btn {
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
+}
+
+.doctor-card__specializations-item {
+  font-weight: 500;
   color: var(--schedule-muted);
   font-size: 14px;
+  line-height: 130%;
+}
+
+.doctor-card__specializations-item:not(:last-child)::after {
+  content: "/";
+  margin: 0 6px;
+  color: var(--schedule-muted);
 }
 
 .doctor-card__descr {
+  display: none;
   flex-grow: 1;
   position: relative;
-  display: block;
   overflow: visible;
   color: var(--schedule-muted);
   font-size: 16px;
@@ -591,7 +668,7 @@ main {
 .doctor-card__more {
   width: fit-content;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 140%;
   color: var(--schedule-accent);
   border-bottom: 1px solid rgba(0, 112, 136, 0.2);
@@ -600,22 +677,25 @@ main {
 .service-details__item {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 8px;
+  gap: 5px;
   align-items: end;
 }
 
 .service-details__dots {
-  min-width: 24px;
-  border-bottom: 1px dotted var(--schedule-border);
+  min-width: 10px;
+  border-bottom: 2px dotted var(--schedule-border);
   transform: translateY(-4px);
 }
 
-.service-details__label {
-  color: var(--schedule-muted);
+.service-details__label,
+.service-details__value {
+  font-size: 14px;
+  color: var(--schedule-text);
 }
 
-.service-details__value {
-  font-weight: 600;
+.service-details__value strong {
+  font-weight: 500;
+  font-size: 20px;
 }
 
 @media (max-width: 1023px) {
@@ -636,9 +716,9 @@ main {
   }
 }
 
-@media (min-width: 640px) {
-  .doctor-card__photo {
-    width: 161px;
+@media (min-width: 768px) {
+  .schedule__list {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -680,5 +760,13 @@ main {
 
   .doctor-card__footer {
     align-content: center;
+  }
+
+  .doctor-card__specializations-item {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--schedule-soft);
+    color: var(--schedule-muted);
+    font-size: 14px;
   }
 }
