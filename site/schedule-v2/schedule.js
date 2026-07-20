@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const selects = Array.from(
     document.querySelectorAll(".schedule-filter__select"),
   );
+  const filtersForm = document.querySelector(".schedule-filters");
+  const nearestInput = document.querySelector(".schedule-filters__nearest-input");
+  const resetButton = document.querySelector(".schedule-filters__reset-btn");
 
   if (!selects.length || typeof window.TomSelect === "undefined") {
     return;
@@ -23,7 +26,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateClearButtonState = (tomSelect) => {
     const hasValue = tomSelect.items.length > 0;
+    const extraCount = Math.max(0, tomSelect.items.length - 1);
+    const firstItem = tomSelect.control.querySelector(".item");
+
     tomSelect.wrapper.classList.toggle("has-selected-value", hasValue);
+    tomSelect.wrapper.classList.toggle("has-selected-extra", extraCount > 0);
+
+    if (!firstItem) {
+      return;
+    }
+
+    if (extraCount > 0) {
+      firstItem.dataset.extraCount = extraCount;
+    } else {
+      delete firstItem.dataset.extraCount;
+    }
+  };
+
+  const hasActiveFilters = () => {
+    return (
+      tomSelects.some((select) => {
+        if (select.input.dataset.filter === "format") {
+          return select.items.some((value) => value !== "any");
+        }
+
+        return select.items.length > 0;
+      }) ||
+      Boolean(nearestInput && nearestInput.checked)
+    );
+  };
+
+  const updateResetButtonState = () => {
+    if (!resetButton) {
+      return;
+    }
+
+    resetButton.hidden = !hasActiveFilters();
   };
 
   const refreshTomSelect = (tomSelect) => {
@@ -208,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       onChange() {
         updateClearButtonState(this);
+        updateResetButtonState();
       },
     });
 
@@ -221,6 +260,35 @@ document.addEventListener("DOMContentLoaded", () => {
     updateClearButtonState(tomSelect);
     tomSelects.push(tomSelect);
   });
+
+  if (nearestInput) {
+    nearestInput.addEventListener("change", updateResetButtonState);
+  }
+
+  if (resetButton) {
+    resetButton.addEventListener("click", () => {
+      tomSelects.forEach((select) => {
+        select.clear();
+        select.close();
+        refreshTomSelect(select);
+      });
+
+      if (nearestInput) {
+        nearestInput.checked = false;
+        nearestInput.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+
+      updateResetButtonState();
+    });
+  }
+
+  if (filtersForm) {
+    filtersForm.addEventListener("reset", () => {
+      requestAnimationFrame(updateResetButtonState);
+    });
+  }
+
+  updateResetButtonState();
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Element)) {

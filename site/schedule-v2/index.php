@@ -129,6 +129,11 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
           >
         </label>
       </div>
+
+      <button class="schedule-filters__reset-btn" type="button" hidden title="Сбросить фильтр">
+        <span aria-hidden="true"></span>
+        Сбросить фильтр
+      </button>
     </form>
 
     <ul class="schedule__list">
