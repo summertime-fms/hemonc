@@ -54,10 +54,10 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
                   <option value="onco-gynecologist">Пульмонолог</option>
                 </optgroup>
                 <optgroup label="Хирургия">
-                  <option value="radiologist">Хирург (общий хирург)</option>
-                  <option value="radiologist">Нейрохирург</option>
-                  <option value="ultrasound">Сердечно-сосудистый хирург</option>
-                  <option value="endoscopist">Травматолог-ортопед</option>
+                  <option value="surgeon">Хирург (общий хирург)</option>
+                  <option value="neurosurgeon">Нейрохирург</option>
+                  <option value="cardiovascular-surgeon">Сердечно-сосудистый хирург</option>
+                  <option value="orthopedist">Травматолог-ортопед</option>
                 </optgroup>
                 <optgroup label="Поддерживающая терапия">
                   <option value="hematologist">Гематолог</option>
@@ -81,9 +81,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
                 <option value="colon-cancer">Гипертония</option>
                 <option value="lymphoma">Хроническая обструктивная болезнь легких</option>
                 <option value="melanoma">Астма</option>
-                <option value="prostate-cancer">Пневмония</option>
-                <option value="prostate-cancer">Туберкулез</option>
-                <option value="prostate-cancer">Бронхит</option>
+                <option value="pneumonia">Пневмония</option>
+                <option value="tuberculosis">Туберкулез</option>
+                <option value="bronchitis">Бронхит</option>
               </select>
             </label>
 
@@ -149,7 +149,7 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
     </form>
 
     <ul class="schedule__list">
-      <li class="schedule__list-item doctor-card">
+      <!-- <li class="schedule__list-item doctor-card">
         <div class="doctor-card__header">
           <div class="doctor-card__type">
             <div class="doctor-card__type-item type_ftf">Очный приём</div>
@@ -366,9 +366,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
 
           <button class="btn" type="button">Записаться на приём</button>
         </div>
-      </li>
+      </li> -->
 
-      <div class="schedule__list-empty">
+      <div class="schedule__list-empty" hidden>
         <b>Врачи не найдены</b>
 
         <p>Попробуйте изменить параметры фильтрации</p>

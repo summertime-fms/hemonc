@@ -13,12 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".reset-filters"),
     ),
   );
+  const doctorsList = document.querySelector(".schedule__list");
+  const emptyState = document.querySelector(".schedule__list-empty");
+  const mockUrl = "./mock/doctors.json";
+  let doctors = [];
 
   if (!selects.length || typeof window.TomSelect === "undefined") {
     return;
   }
 
+  if (doctorsList && emptyState && emptyState.parentElement === doctorsList) {
+    doctorsList.after(emptyState);
+  }
+
+  if (doctorsList) {
+    doctorsList.innerHTML = "";
+  }
+
   const tomSelects = [];
+  const tomSelectByFilter = {};
 
   const closeOtherDropdowns = (activeSelect) => {
     tomSelects.forEach((select) => {
@@ -83,6 +96,157 @@ document.addEventListener("DOMContentLoaded", () => {
     return (
       optionElement.dataset.value || optionElement.getAttribute("data-value")
     );
+  };
+
+  const escapeHtml = (value) => {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
+  const formatLabels = {
+    clinic: { label: "Очный приём", className: "type_ftf" },
+    online: { label: "Приём онлайн", className: "type_online" },
+    home: { label: "Приём на дому", className: "type_home" },
+  };
+
+  const renderDoctorFormats = (formats) => {
+    return (formats || [])
+      .map((format) => {
+        const item = formatLabels[format];
+
+        if (!item) {
+          return "";
+        }
+
+        return `<div class="doctor-card__type-item ${item.className}">${escapeHtml(item.label)}</div>`;
+      })
+      .join("");
+  };
+
+  const renderDoctorCard = (doctor) => {
+    const formats = renderDoctorFormats(doctor.formats);
+    const specializations = (doctor.specializations || [])
+      .map((specialization) => {
+        return `<div class="doctor-card__specializations-item">${escapeHtml(specialization.label)}</div>`;
+      })
+      .join("");
+    const description = escapeHtml(doctor.description);
+
+    return `
+      <li class="schedule__list-item doctor-card">
+        <div class="doctor-card__header">
+          <div class="doctor-card__type">${formats}</div>
+        </div>
+
+        <div class="doctor-card__body">
+          <div class="doctor-card__photo">
+            <img src="${escapeHtml(doctor.photo)}" alt="${escapeHtml(doctor.name)}" loading="lazy" />
+          </div>
+
+          <div class="doctor-card__main-content">
+            <div class="doctor-card__name">${escapeHtml(doctor.name)}</div>
+
+            <div class="doctor-card__row">
+              <div class="doctor-card__specializations">${specializations}</div>
+              <div class="doctor-card__type">${formats}</div>
+            </div>
+
+            <div class="doctor-card__descr" tabindex="0" data-full-text="${description}">
+              <span class="doctor-card__descr-text">${description}</span>
+            </div>
+
+            <a href="${escapeHtml(doctor.detailUrl || "#")}" class="doctor-card__more">Подробнее о враче</a>
+          </div>
+        </div>
+
+        <div class="doctor-card__footer">
+          <div class="service-details">
+            <div class="service-details__item">
+              <span class="service-details__label">Стоимость приёма</span>
+              <span class="service-details__dots"></span>
+              <span class="service-details__value">${doctor.price || ""}</span>
+            </div>
+
+            <div class="service-details__item">
+              <span class="service-details__label">Ближайшая запись</span>
+              <span class="service-details__dots"></span>
+              <span class="service-details__value">${escapeHtml(doctor.nearest)}</span>
+            </div>
+          </div>
+
+          <button class="btn" type="button">Записаться на приём</button>
+        </div>
+      </li>
+    `;
+  };
+
+  const renderDoctors = (items) => {
+    if (!doctorsList) {
+      return;
+    }
+
+    doctorsList.innerHTML = items.map(renderDoctorCard).join("");
+
+    if (emptyState) {
+      emptyState.hidden = items.length > 0;
+    }
+  };
+
+  const getFilterValues = (filterName) => {
+    const select = tomSelectByFilter[filterName];
+    const value = select ? select.getValue() : [];
+    return Array.isArray(value) ? value : value ? [value] : [];
+  };
+
+  const hasAnyIntersection = (doctorValues, filterValues) => {
+    return filterValues.some((value) => (doctorValues || []).includes(value));
+  };
+
+  const applyFilters = () => {
+    const specializationValues = getFilterValues("specialization");
+    const diseaseValues = getFilterValues("disease");
+    const serviceValues = getFilterValues("service");
+    const formatValue = getFilterValues("format")[0] || "any";
+    let filteredDoctors = doctors.slice();
+
+    if (specializationValues.length) {
+      filteredDoctors = filteredDoctors.filter((doctor) => {
+        const doctorSpecializations = (doctor.specializations || []).map(
+          (specialization) => specialization.value,
+        );
+        return hasAnyIntersection(doctorSpecializations, specializationValues);
+      });
+    }
+
+    if (diseaseValues.length) {
+      filteredDoctors = filteredDoctors.filter((doctor) => {
+        return hasAnyIntersection(doctor.diseases, diseaseValues);
+      });
+    }
+
+    if (serviceValues.length) {
+      filteredDoctors = filteredDoctors.filter((doctor) => {
+        return hasAnyIntersection(doctor.services, serviceValues);
+      });
+    }
+
+    if (formatValue !== "any") {
+      filteredDoctors = filteredDoctors.filter((doctor) => {
+        return (doctor.formats || []).includes(formatValue);
+      });
+    }
+
+    if (nearestInput && nearestInput.checked) {
+      filteredDoctors.sort((firstDoctor, secondDoctor) => {
+        return (firstDoctor.nearestTs || 0) - (secondDoctor.nearestTs || 0);
+      });
+    }
+
+    renderDoctors(filteredDoctors);
   };
 
   const positionMobileDropdown = (tomSelect) => {
@@ -256,6 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
       onChange() {
         updateClearButtonState(this);
         updateResetButtonState();
+        applyFilters();
       },
     });
 
@@ -267,11 +432,21 @@ document.addEventListener("DOMContentLoaded", () => {
     bindClearButton(tomSelect);
     bindMultiselectOptionToggle(tomSelect);
     updateClearButtonState(tomSelect);
+    tomSelectByFilter[filterType] = tomSelect;
     tomSelects.push(tomSelect);
+
+    selectElement.addEventListener("change", () => {
+      updateClearButtonState(tomSelect);
+      updateResetButtonState();
+      applyFilters();
+    });
   });
 
   if (nearestInput) {
-    nearestInput.addEventListener("change", updateResetButtonState);
+    nearestInput.addEventListener("change", () => {
+      updateResetButtonState();
+      applyFilters();
+    });
   }
 
   const resetFilters = () => {
@@ -287,6 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     updateResetButtonState();
+    applyFilters();
   };
 
   if (resetButtons.length) {
@@ -297,11 +473,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (filtersForm) {
     filtersForm.addEventListener("reset", () => {
-      requestAnimationFrame(updateResetButtonState);
+      requestAnimationFrame(() => {
+        updateResetButtonState();
+        applyFilters();
+      });
     });
   }
 
   updateResetButtonState();
+
+  fetch(mockUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Mock request failed: ${response.status}`);
+      }
+
+      return response.json();
+    })
+    .then((data) => {
+      doctors = Array.isArray(data.doctors) ? data.doctors : [];
+      applyFilters();
+    })
+    .catch(() => {
+      doctors = [];
+      renderDoctors([]);
+    });
 
   document.addEventListener("click", (event) => {
     if (!(event.target instanceof Element)) {

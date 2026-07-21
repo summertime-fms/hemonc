@@ -761,6 +761,10 @@ main {
   grid-column: 1 / -1;
 }
 
+.schedule__list-empty[hidden] {
+  display: none;
+}
+
 .schedule__list-empty b {
   font-weight: 500;
   font-size: 18px;
