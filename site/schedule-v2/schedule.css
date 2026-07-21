@@ -15,7 +15,10 @@ main {
   --schedule-soft: #f4f8fa;
 
   --color-orange: #fd853a;
+  --color-orange-light: #ffead5;
+
   --color-violet: #6875d8;
+  --color-violet-light: #e0eaff;
 
   color: var(--schedule-text);
 }
@@ -494,7 +497,7 @@ main {
 
 .type_ftf {
   color: var(--color-orange);
-  border-color: var(--color-orange);
+  border-color: var(--color-orange-light);
 }
 
 .type_ftf:before {
@@ -503,7 +506,7 @@ main {
 
 .type_online {
   color: var(--color-violet);
-  border-color: var(--color-violet);
+  border-color: var(--color-violet-light);
 }
 
 .type_online:before {
@@ -613,7 +616,7 @@ main {
   overflow: visible;
   color: var(--schedule-muted);
   font-size: 16px;
-  line-height: 1.45;
+  line-height: 140%;
   cursor: default;
   outline: none;
 }
@@ -638,7 +641,7 @@ main {
 .doctor-card__descr::after {
   content: attr(data-full-text);
   position: absolute;
-  top: 50%;
+  top: 25px;
   left: 0;
   z-index: 10;
   width: 100%;
@@ -677,7 +680,7 @@ main {
 .service-details__item {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 5px;
+  gap: 4px;
   align-items: end;
 }
 
@@ -691,10 +694,12 @@ main {
 .service-details__value {
   font-size: 14px;
   color: var(--schedule-text);
+  line-height: 130%;
 }
 
 .service-details__value strong {
   font-weight: 500;
+  line-height: 130%;
   font-size: 20px;
 }
 
@@ -722,7 +727,7 @@ main {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .schedule-filter .ts-dropdown {
     margin-top: 60px;
   }
@@ -753,20 +758,115 @@ main {
   }
 
   .doctor-card {
-    grid-template-columns: 1fr 320px;
-    align-items: center;
-    padding: 24px;
+    align-items: stretch;
+    grid-template-columns: 1fr 35%;
+    padding: 30px;
+  }
+
+  .doctor-card__header {
+    display: none;
   }
 
   .doctor-card__footer {
-    align-content: center;
+    padding: 0 0 0 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .doctor-card__body {
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 30px;
+    padding: 0 15px 0 0;
+    border-right: 1px solid#eeeeee;
+  }
+
+  .doctor-card__photo {
+    border-radius: 30px;
+    flex: 0 0 161px;
+    width: 161px;
+    height: 161px;
+  }
+
+  .doctor-card__descr {
+    display: block;
+  }
+
+  .doctor-card__row .doctor-card__type {
+    display: flex;
+  }
+
+  .doctor-card__specializations-item:not(:last-child)::after {
+    content: none;
+  }
+
+  .doctor-card__type-item {
+    border-radius: 5px;
   }
 
   .doctor-card__specializations-item {
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: var(--schedule-soft);
-    color: var(--schedule-muted);
-    font-size: 14px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 5px;
+    background: #f4f4f4;
+    color: var(--schedule-text);
+  }
+
+  .doctor-card__specializations,
+  .doctor-card__type {
+    gap: 10px;
+  }
+
+  .doctor-card__footer .btn {
+    margin-top: auto;
+    margin-left: auto;
+    width: fit-content;
+    padding: 9px 20px;
+  }
+
+  .service-details__item {
+    gap: 10px;
+  }
+
+  .schedule__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1300px) {
+  .doctor-card__footer {
+    padding: 0 0 0 30px;
+  }
+
+  .doctor-card__body {
+    padding: 0 30px 0 0;
+  }
+
+  .doctor-card__name {
+    font-size: 20px;
+  }
+
+  .doctor-card__more,
+  .doctor-card__specializations-item {
+    font-size: 16px;
+  }
+
+  .doctor-card__type-item {
+    padding: 5px 10px 5px 21px;
+  }
+
+  .doctor-card__type-item:before {
+    width: 6px;
+    height: 6px;
+  }
+
+  .doctor-card__row {
+    margin-bottom: 20px;
+  }
+
+  .service-details__label,
+  .service-details__value {
+    font-size: 16px;
   }
 }
