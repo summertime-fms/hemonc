@@ -29,8 +29,8 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
   window.SCHEDULE_V2_PREVIEW = true;
 </script> -->
 
-<link rel="stylesheet" href="./tom-select/tom-select.min.css">
-<link rel="stylesheet" href="./schedule.css">
+<link rel="stylesheet" href="./tom-select/tom-select.min.css" />
+<link rel="stylesheet" href="./schedule.css" />
 
 <section class="schedule">
   <div class="wrapper">
@@ -92,7 +92,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
               data-filter="service"
               data-placeholder="Услуга"
             >
-              <option value="primary-consultation">Первичная консультация</option>
+              <option value="primary-consultation">
+                Первичная консультация
+              </option>
               <option value="second-opinion">Второе мнение</option>
               <option value="chemotherapy">Химиотерапия</option>
               <option value="check-up">Онкологический чек-ап</option>
@@ -130,7 +132,12 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
         </label>
       </div>
 
-      <button class="schedule-filters__reset-btn" type="button" hidden title="Сбросить фильтр">
+      <button
+        class="schedule-filters__reset-btn"
+        type="button"
+        hidden
+        title="Сбросить фильтр"
+      >
         <span aria-hidden="true"></span>
         Сбросить фильтр
       </button>
@@ -144,7 +151,7 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
             <div class="doctor-card__type-item type_online">Приём онлайн</div>
           </div>
         </div>
-        
+
         <div class="doctor-card__body">
           <div class="doctor-card__photo">
             <img
@@ -154,8 +161,10 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
             />
           </div>
 
-          <div class="doctor-card__main-content">       
-            <div class="doctor-card__name">Рушниченко Анастасия Владимировна</div>
+          <div class="doctor-card__main-content">
+            <div class="doctor-card__name">
+              Рушниченко Анастасия Владимировна
+            </div>
 
             <div class="doctor-card__row">
               <div class="doctor-card__specializations">
@@ -167,7 +176,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
 
               <div class="doctor-card__type">
                 <div class="doctor-card__type-item type_ftf">Очный приём</div>
-                <div class="doctor-card__type-item type_online">Приём онлайн</div>
+                <div class="doctor-card__type-item type_online">
+                  Приём онлайн
+                </div>
               </div>
             </div>
 
@@ -192,7 +203,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
             <div class="service-details__item">
               <span class="service-details__label">Стоимость приёма</span>
               <span class="service-details__dots"></span>
-              <span class="service-details__value">от <strong>5 500 ₽</strong></span>
+              <span class="service-details__value"
+                >от <strong>5 500 ₽</strong></span
+              >
             </div>
 
             <div class="service-details__item">
@@ -236,7 +249,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
 
               <div class="doctor-card__type">
                 <div class="doctor-card__type-item type_ftf">Очный приём</div>
-                <div class="doctor-card__type-item type_online">Приём онлайн</div>
+                <div class="doctor-card__type-item type_online">
+                  Приём онлайн
+                </div>
               </div>
             </div>
 
@@ -261,7 +276,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
             <div class="service-details__item">
               <span class="service-details__label">Стоимость приёма</span>
               <span class="service-details__dots"></span>
-              <span class="service-details__value">от <strong>5 500 ₽</strong></span>
+              <span class="service-details__value"
+                >от <strong>5 500 ₽</strong></span
+              >
             </div>
 
             <div class="service-details__item">
@@ -302,7 +319,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
 
               <div class="doctor-card__type">
                 <div class="doctor-card__type-item type_ftf">Очный приём</div>
-                <div class="doctor-card__type-item type_online">Приём онлайн</div>
+                <div class="doctor-card__type-item type_online">
+                  Приём онлайн
+                </div>
               </div>
             </div>
 
@@ -326,7 +345,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
             <div class="service-details__item">
               <span class="service-details__label">Стоимость приёма</span>
               <span class="service-details__dots"></span>
-              <span class="service-details__value">от <strong>5 500 ₽</strong></span>
+              <span class="service-details__value"
+                >от <strong>5 500 ₽</strong></span
+              >
             </div>
 
             <div class="service-details__item">
@@ -343,9 +364,9 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
   </div>
 </section>
 
-
 <script src="./tom-select/tom-select.complete.min.js"></script>
 <script src="./schedule.js"></script>
+
 
 
 <?php

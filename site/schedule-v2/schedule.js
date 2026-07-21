@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".schedule-filter__select"),
   );
   const filtersForm = document.querySelector(".schedule-filters");
-  const nearestInput = document.querySelector(".schedule-filters__nearest-input");
+  const nearestInput = document.querySelector(
+    ".schedule-filters__nearest-input",
+  );
   const resetButton = document.querySelector(".schedule-filters__reset-btn");
 
   if (!selects.length || typeof window.TomSelect === "undefined") {
@@ -51,8 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         return select.items.length > 0;
-      }) ||
-      Boolean(nearestInput && nearestInput.checked)
+      }) || Boolean(nearestInput && nearestInput.checked)
     );
   };
 
