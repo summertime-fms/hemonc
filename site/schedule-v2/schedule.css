@@ -40,10 +40,13 @@ main {
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-y: hidden;
   overflow-x: auto;
   padding-bottom: 10px;
-  margin-right: -24px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .schedule-filters__row {
@@ -51,6 +54,8 @@ main {
   flex-wrap: wrap;
   gap: 5px;
   align-items: center;
+  width: 100%;
+  min-width: 0;
   margin-right: auto;
 }
 
@@ -58,6 +63,7 @@ main {
   position: relative;
   display: block;
   width: fit-content;
+  flex: 0 0 fit-content;
   min-width: 0;
   flex-shrink: 0;
   min-height: 51px;
@@ -175,6 +181,7 @@ main {
   background: transparent;
   border: none;
   font-size: 16px;
+  pointer-events: none;
 }
 
 .schedule-filter .ts-wrapper.has-selected-value .ts-control {
@@ -249,14 +256,18 @@ main {
 .schedule-filter .dropdown-input {
   width: 100%;
   min-height: 40px;
-  padding: 10px 15px;
+  padding: 10px 15px 10px 40px;
   border: none;
   border-radius: 10px;
   color: var(--schedule-text);
   font-size: 16px;
   font-weight: 400;
   outline: none;
-  background: #f4f4f4;
+  background-color: #f4f4f4;
+  background-image: url("./assets/search.svg");
+  background-position: left 15px top 12px;
+  background-size: 16px;
+  background-repeat: no-repeat;
 }
 
 .schedule-filter .dropdown-input:placeholder {
@@ -272,6 +283,7 @@ main {
   align-items: center;
   gap: 8px;
   padding: 10px;
+  min-height: 40px;
   color: var(--schedule-soft);
   font-size: 14px;
   line-height: 140%;
@@ -293,16 +305,11 @@ main {
   align-items: center;
   gap: 10px;
   min-height: 40px;
-  padding: 8px 10px;
+  padding: 10px;
   border-radius: 8px;
   color: var(--schedule-text);
-  font-size: 15px;
-  line-height: 1.25;
-}
-
-.schedule-filter .option.active {
-  background: var(--schedule-soft);
-  color: var(--schedule-text);
+  font-size: 14px;
+  line-height: 140%;
 }
 
 .schedule-filter .no-results {
@@ -736,6 +743,52 @@ main {
   }
 }
 
+@media (max-width: 1199px) {
+  .relative {
+    flex: 0 0 calc(100% + 48px);
+    min-width: 0;
+    max-width: calc(100% + 48px);
+    position: relative;
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+
+  .relative .schedule-filters__subrow {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .relative::before,
+  .relative::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 10px;
+    z-index: 5;
+    width: 56px;
+    pointer-events: none;
+  }
+
+  .relative::before {
+    left: -1px;
+    background: linear-gradient(
+      270deg,
+      rgba(245, 247, 248, 0) -16.07%,
+      #f5f7f8 89.29%
+    );
+  }
+
+  .relative::after {
+    right: -1px;
+    background: linear-gradient(
+      90deg,
+      rgba(245, 247, 248, 0) -16.07%,
+      #f5f7f8 89.29%
+    );
+  }
+}
+
 @media (min-width: 768px) {
   .schedule__list {
     grid-template-columns: 1fr 1fr;
@@ -743,6 +796,10 @@ main {
 }
 
 @media (min-width: 1200px) {
+  .relative {
+    width: auto;
+  }
+
   .schedule-filter .ts-dropdown {
     margin-top: 60px;
   }
