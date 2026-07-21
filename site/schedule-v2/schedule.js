@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const nearestInput = document.querySelector(
     ".schedule-filters__nearest-input",
   );
-  const resetButton = document.querySelector(".schedule-filters__reset-btn");
+  const resetButtons = Array.from(
+    new Set(
+      document.querySelectorAll(".reset-filters"),
+    ),
+  );
 
   if (!selects.length || typeof window.TomSelect === "undefined") {
     return;
@@ -58,11 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const updateResetButtonState = () => {
-    if (!resetButton) {
+    if (!resetButtons.length) {
       return;
     }
 
-    resetButton.hidden = !hasActiveFilters();
+    const shouldHide = !hasActiveFilters();
+
+    resetButtons.forEach((button) => {
+      button.hidden = shouldHide;
+    });
   };
 
   const refreshTomSelect = (tomSelect) => {
@@ -266,20 +274,24 @@ document.addEventListener("DOMContentLoaded", () => {
     nearestInput.addEventListener("change", updateResetButtonState);
   }
 
-  if (resetButton) {
-    resetButton.addEventListener("click", () => {
-      tomSelects.forEach((select) => {
-        select.clear();
-        select.close();
-        refreshTomSelect(select);
-      });
+  const resetFilters = () => {
+    tomSelects.forEach((select) => {
+      select.clear();
+      select.close();
+      refreshTomSelect(select);
+    });
 
-      if (nearestInput) {
-        nearestInput.checked = false;
-        nearestInput.dispatchEvent(new Event("change", { bubbles: true }));
-      }
+    if (nearestInput) {
+      nearestInput.checked = false;
+      nearestInput.dispatchEvent(new Event("change", { bubbles: true }));
+    }
 
-      updateResetButtonState();
+    updateResetButtonState();
+  };
+
+  if (resetButtons.length) {
+    resetButtons.forEach((button) => {
+      button.addEventListener("click", resetFilters);
     });
   }
 

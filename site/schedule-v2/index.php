@@ -138,7 +138,7 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
       </div>
 
       <button
-        class="schedule-filters__reset-btn"
+        class="schedule-filters__reset-btn reset-filters"
         type="button"
         hidden
         title="Сбросить фильтр"
@@ -365,6 +365,20 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
           <button class="btn" type="button">Записаться на приём</button>
         </div>
       </li>
+
+      <div class="schedule__list-empty">
+        <b>Врачи не найдены</b>
+
+        <p>Попробуйте изменить параметры фильтрации</p>
+
+        <button
+          class="btn reset-filters"
+          type="button"
+          title="Сбросить фильтры"
+        >
+          Сбросить фильтры
+        </button>
+      </div>
     </ul>
   </div>
 </section>

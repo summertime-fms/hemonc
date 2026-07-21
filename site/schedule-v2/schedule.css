@@ -54,7 +54,6 @@ main {
   flex-wrap: wrap;
   gap: 5px;
   align-items: center;
-  width: 100%;
   min-width: 0;
   margin-right: auto;
 }
@@ -98,8 +97,8 @@ main {
   background: var(--color-white);
   box-shadow: none;
   color: var(--schedule-accent);
-  font-size: 15px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 140%;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -109,8 +108,8 @@ main {
 }
 
 .schedule-filter__select.has-selected-value .ts-control {
-  background: var(--schedule-accent);
-  border-color: var(--schedule-accent);
+  background: var(--schedule-accent) !important;
+  border-color: var(--schedule-accent) !important;
 }
 
 .schedule-filter .ts-wrapper.focus .ts-control,
@@ -136,7 +135,7 @@ main {
   content: attr(data-button-label);
   color: var(--schedule-accent);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
@@ -174,7 +173,8 @@ main {
   font-weight: 400;
 }
 
-.ts-wrapper.multi .ts-control > div {
+.ts-wrapper .ts-control > .item,
+.ts-wrapper.multi .ts-control > .item {
   margin: 0;
   padding: 0;
   color: var(--color-white);
@@ -194,6 +194,7 @@ main {
   width: 16px;
   height: 16px;
   margin: 2px 0 0 10px;
+  padding: 0;
   color: var(--schedule-muted);
   font-size: 0;
   opacity: 1;
@@ -242,6 +243,7 @@ main {
   background: var(--color-white);
   box-shadow: 0 15px 21.6px 0 rgba(186, 204, 213, 0.2);
   overflow: hidden;
+  z-index: 4;
 }
 
 .schedule-filter .ts-dropdown-content {
@@ -260,7 +262,7 @@ main {
   border: none;
   border-radius: 10px;
   color: var(--schedule-text);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   outline: none;
   background-color: #f4f4f4;
@@ -370,7 +372,6 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  min-height: 48px;
   color: var(--schedule-text);
   font-size: 16px;
   line-height: 1.25;
@@ -424,6 +425,8 @@ main {
 }
 
 .schedule-filters__nearest-text {
+  font-size: 14px;
+  line-height: 140%;
   color: var(--schedule-accent);
   min-width: 0;
 }
@@ -437,8 +440,8 @@ main {
   background: transparent;
   color: var(--schedule-accent);
   font: inherit;
-  font-size: 16px;
-  line-height: 1.25;
+  font-size: 14px;
+  line-height: 140%;
   cursor: pointer;
 }
 
@@ -725,7 +728,41 @@ main {
   font-size: 20px;
 }
 
-@media (max-width: 1023px) {
+.schedule__list-empty {
+  width: 100%;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  grid-column: 1 / -1;
+}
+
+.schedule__list-empty b {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: center;
+  color: var(--schedule-accent);
+  margin-bottom: 10px;
+}
+
+.schedule__list-empty p {
+  display: inline-block;
+  max-width: 230px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.schedule__list-empty .btn {
+  width: fit-content;
+  padding: 9px 20px;
+}
+
+@media (max-width: 1199px) {
   .schedule-filter .ts-dropdown {
     position: fixed !important;
     top: var(--schedule-filter-dropdown-top, 96px) !important;
@@ -741,9 +778,7 @@ main {
   .schedule-filter .ts-dropdown-content {
     max-height: min(404px, calc(100dvh - 184px));
   }
-}
 
-@media (max-width: 1199px) {
   .relative {
     flex: 0 0 calc(100% + 48px);
     min-width: 0;
@@ -765,8 +800,9 @@ main {
     position: absolute;
     top: 0;
     bottom: 10px;
-    z-index: 5;
+    z-index: 4;
     width: 56px;
+    height: 102%;
     pointer-events: none;
   }
 
@@ -793,6 +829,10 @@ main {
   .schedule__list {
     grid-template-columns: 1fr 1fr;
   }
+
+  .schedule__list-empty p {
+    max-width: 100%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -801,7 +841,18 @@ main {
   }
 
   .schedule-filter .ts-dropdown {
+    font-size: 16px;
     margin-top: 60px;
+  }
+
+  .schedule-filters__nearest-text,
+  .schedule-filter .dropdown-input,
+  .schedule-filters__reset-btn {
+    font-size: 16px;
+  }
+
+  .schedule-filter .ts-wrapper:not(.has-selected-value) .ts-control::before {
+    font-size: 16px;
   }
 
   .schedule-filters__row {
@@ -939,6 +990,15 @@ main {
 
   .service-details__label,
   .service-details__value {
+    font-size: 16px;
+  }
+
+  .schedule__list-empty b {
+    font-size: 20px;
+  }
+
+  .schedule__list-empty p,
+  .schedule__list-empty .btn {
     font-size: 16px;
   }
 }
