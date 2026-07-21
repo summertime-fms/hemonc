@@ -21,6 +21,9 @@ main {
   --color-violet: #6875d8;
   --color-violet-light: #e0eaff;
 
+  --color-green: #23b36b;
+  --color-green-light: #ecfdf3;
+
   color: var(--schedule-text);
 }
 
@@ -302,6 +305,10 @@ main {
   background: #e1e1e1;
 }
 
+.optgroup-header .highlight {
+  background: rgba(125, 168, 208, 0.2);
+}
+
 .schedule-filter .option {
   display: flex;
   align-items: center;
@@ -498,7 +505,14 @@ main {
   border-bottom: 1px solid #eef2f3;
 }
 
+.doctor-card__header .doctor-card__type {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .doctor-card__type-item {
+  flex-shrink: 0;
   font-size: 14px;
   line-height: 100%;
   position: relative;
@@ -536,6 +550,15 @@ main {
 
 .type_online:before {
   background: var(--color-violet);
+}
+
+.type_home {
+  color: var(--color-green);
+  border-color: var(--color-green-light);
+}
+
+.type_home:before {
+  background: var(--color-green);
 }
 
 .doctor-card__body {

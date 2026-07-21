@@ -154,6 +154,7 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
           <div class="doctor-card__type">
             <div class="doctor-card__type-item type_ftf">Очный приём</div>
             <div class="doctor-card__type-item type_online">Приём онлайн</div>
+            <div class="doctor-card__type-item type_home">Приём на дому</div>
           </div>
         </div>
 
@@ -184,6 +185,7 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
                 <div class="doctor-card__type-item type_online">
                   Приём онлайн
                 </div>
+                <div class="doctor-card__type-item type_home">Приём на дому</div>
               </div>
             </div>
 
