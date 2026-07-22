@@ -1,0 +1,55 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Рушниченко Анастасия Владимировна",
+      "photo": "https://hemonc.ru/upload/dev2fun.imagecompress/webp/iblock/f7a/m9clo41isnw1o0o8hjri1z3b1jdh7zx0.webp",
+      "specializations": [
+        { "value": "oncologist", "label": "Терапевт" },
+        { "value": "chemotherapist", "label": "Гастроэнтеролог" }
+      ],
+      "diseases": ["breast-cancer", "lung-cancer"],
+      "services": ["primary-consultation", "diagnostics"],
+      "formats": ["clinic", "online", "home"],
+      "description": "Диагностирует и лечит онкологические заболевания у взрослых, проводит химиотерапию и ведет пациентов на всех этапах лечения.",
+      "price": "от <strong>5 500 ₽</strong>",
+      "nearest": "16.07.2026 в 13:00",
+      "nearestTs": 1784196000000,
+      "detailUrl": "#"
+    },
+    {
+      "id": 2,
+      "name": "Борисов Игнат Евгеньевич",
+      "photo": "https://hemonc.ru/upload/dev2fun.imagecompress/webp/iblock/fb5/npg8y04sb4mm50utwwdhv9h9rem2uq1e.webp",
+      "specializations": [
+        { "value": "mammologist", "label": "Кардиолог" },
+        { "value": "onco-gynecologist", "label": "Пульмонолог" }
+      ],
+      "diseases": ["colon-cancer", "lymphoma", "pneumonia"],
+      "services": ["second-opinion", "support-therapy"],
+      "formats": ["online"],
+      "description": "Занимается лечением злокачественных опухолей у взрослых. Ведёт пациентов на всех этапах лечения: от диагностики и проверки диагноза до наблюдения после окончания лечения.",
+      "price": "от <strong>5 500 ₽</strong>",
+      "nearest": "17.07.2026 в 10:30",
+      "nearestTs": 1784273400000,
+      "detailUrl": "#"
+    },
+    {
+      "id": 3,
+      "name": "Аболмасов Александр Евгеньевич",
+      "photo": "https://hemonc.ru/upload/dev2fun.imagecompress/webp/iblock/398/3mbhs8mz0sfvu3vzhswxotw96ccnsys6.webp",
+      "specializations": [
+        { "value": "surgeon", "label": "Хирург (общий хирург)" },
+        { "value": "orthopedist", "label": "Травматолог-ортопед" }
+      ],
+      "diseases": ["melanoma", "bronchitis", "tuberculosis"],
+      "services": ["check-up", "chemotherapy"],
+      "formats": ["clinic"],
+      "description": "Заместитель руководителя клиники. Диагностирует и лечит онкологические заболевания у взрослых.",
+      "price": "от <strong>5 500 ₽</strong>",
+      "nearest": "20.07.2026 в 15:00",
+      "nearestTs": 1784548800000,
+      "detailUrl": "#"
+    }
+  ]
+}

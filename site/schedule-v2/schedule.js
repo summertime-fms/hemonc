@@ -9,12 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ".schedule-filters__nearest-input",
   );
   const resetButtons = Array.from(
-    new Set(
-      document.querySelectorAll(".reset-filters"),
-    ),
+    new Set(document.querySelectorAll(".reset-filters")),
   );
   const doctorsList = document.querySelector(".schedule__list");
   const emptyState = document.querySelector(".schedule__list-empty");
+  const loader = document.querySelector(".schedule-loader");
   const mockUrl = "./mock/doctors.json";
   let doctors = [];
 
@@ -193,6 +192,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (emptyState) {
       emptyState.hidden = items.length > 0;
+    }
+  };
+
+  const setLoading = (isLoading) => {
+    if (loader) {
+      loader.hidden = !isLoading;
     }
   };
 
@@ -481,6 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateResetButtonState();
+  setLoading(true);
 
   fetch(mockUrl)
     .then((response) => {
@@ -492,10 +498,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then((data) => {
       doctors = Array.isArray(data.doctors) ? data.doctors : [];
+      setLoading(false);
       applyFilters();
     })
     .catch(() => {
       doctors = [];
+      setLoading(false);
       renderDoctors([]);
     });
 

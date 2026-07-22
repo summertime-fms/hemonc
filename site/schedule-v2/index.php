@@ -148,6 +148,10 @@ if (function_exists('hemonc_register_schedule_v2_assets')) {
       </button>
     </form>
 
+    <div class="schedule-loader" role="status" aria-live="polite">
+      <img src="./assets/loader.svg" alt="" aria-hidden="true" />
+    </div>
+
     <ul class="schedule__list">
       <!-- <li class="schedule__list-item doctor-card">
         <div class="doctor-card__header">
